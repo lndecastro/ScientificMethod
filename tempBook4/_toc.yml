@@ -2,7 +2,34 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: intro.md
 chapters:
-  - file: test.md
-    title: "Test File"
+  - file: Chapter1_ScientificResearch.md
+    title: "Chapter 1: Scientific Research in AI & Data Science"
+
+  - file: Chapter2_ResearchParadigms.md
+    title: "Chapter 2: Research Paradigms, Ethics, and Responsible AI"
+
+  - file: Chapter3_ResearchQuestion.md
+    title: "Chapter 3: From Problem Area to Research Question"
+
+  - file: Chapter4_LiteratureReview.md
+    title: "Chapter 4: Literature Review as Scientific Evidence"
+
+  - file: Chapter5_ResearchMethodology.md
+    title: "Chapter 5: Research Methodology in AI & Data Science"
+
+  - file: Chapter6_ExperimentalDesign.md
+    title: "Chapter 6: Experimental Design and Evaluation in AI & Data Science"
+
+  - file: Chapter7_Reproducibility.md
+    title: "Chapter 7: Reproducibility, Tooling, and Research Pipelines"
+
+  - file: Chapter8_Experimentation.md
+    title: "Chapter 8: Preliminary Experimentation and Iterative Refinement"
+
+  - file: Chapter9_Writing.md
+    title: "Chapter 9: Scientific Writing and Thesis Development"
+
+  - file: Chapter10_Defense.md
+    title: "Chapter 10: Research Communication and Defense"

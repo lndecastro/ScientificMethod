@@ -1,0 +1,4 @@
+jupyter-book<2.0
+matplotlib
+numpy
+gh-import

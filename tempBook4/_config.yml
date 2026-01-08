@@ -4,6 +4,7 @@
 title: "Temp Book 4" # Change this to new repo name
 author: Leandro Nunes de Castro, Ph.D.
 logo: dendritic_logo.png
+copyright: "2026"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

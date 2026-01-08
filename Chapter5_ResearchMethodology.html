@@ -1,0 +1,844 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 5 — Research Methodology in AI &amp; Data Science &#8212; Temp Book 4</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter5_ResearchMethodology';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 6 — Experimental Design and Evaluation in AI &amp; Data Science" href="Chapter6_ExperimentalDesign.html" />
+    <link rel="prev" title="Chapter 4 — Literature Review as Scientific Evidence" href="Chapter4_LiteratureReview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/dendritic_logo.png" class="logo__image only-light" alt="Temp Book 4 - Home"/>
+    <script>document.write(`<img src="_static/dendritic_logo.png" class="logo__image only-dark" alt="Temp Book 4 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Scientific Method for Artificial Intelligence & Data Science
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter1_ScientificResearch.html">Chapter 1: Scientific Research in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter2_ResearchParadigms.html">Chapter 2: Research Paradigms, Ethics, and Responsible AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter3_ResearchQuestion.html">Chapter 3: From Problem Area to Research Question</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter4_LiteratureReview.html">Chapter 4: Literature Review as Scientific Evidence</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 5: Research Methodology in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter6_ExperimentalDesign.html">Chapter 6: Experimental Design and Evaluation in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter7_Reproducibility.html">Chapter 7: Reproducibility, Tooling, and Research Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter8_Experimentation.html">Chapter 8: Preliminary Experimentation and Iterative Refinement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter9_Writing.html">Chapter 9: Scientific Writing and Thesis Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter10_Defense.html">Chapter 10: Research Communication and Defense</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/lndecastro/tempBook4" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/lndecastro/tempBook4/edit/master/docs/Chapter5_ResearchMethodology.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Chapter5_ResearchMethodology.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 5 — Research Methodology in AI & Data Science</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-research-methodology-in-ai-data-science">1. What Is Research Methodology in AI &amp; Data Science?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#major-research-methodologies-in-ai-data-science">2. Major Research Methodologies in AI &amp; Data Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-methodology">2.1 Experimental Methodology</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-methodology">2.2 Empirical Methodology</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmic-and-constructive-methodology">2.3 Algorithmic and Constructive Methodology</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-based-methodology">2.4 Simulation-Based Methodology</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-variables-and-controls">3. Defining Variables and Controls</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-and-dependent-variables">3.1 Independent and Dependent Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#control-conditions-and-baselines">3.2 Control Conditions and Baselines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-and-reliability-in-ai-ds-research">4. Validity and Reliability in AI/DS Research</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-validity">4.1 Internal Validity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#external-validity">4.2 External Validity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reliability-and-robustness">4.3 Reliability and Robustness</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodological-alignment-with-research-questions">5. Methodological Alignment with Research Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-methodological-pitfalls">6. Common Methodological Pitfalls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology-documentation-and-transparency">7. Methodology Documentation and Transparency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-methodology-classification">Exercise 1 — Methodology Classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-methodology-design">Exercise 2 — Methodology Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-validity-analysis">Exercise 3 — Validity Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading-recent-literature">Further Reading (Recent Literature)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-5-research-methodology-in-ai-data-science">
+<h1>Chapter 5 — Research Methodology in AI &amp; Data Science<a class="headerlink" href="#chapter-5-research-methodology-in-ai-data-science" title="Link to this heading">#</a></h1>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
+<p>This chapter focuses on <strong>how scientific questions are translated into research designs</strong> in Artificial Intelligence (AI) and Data Science (DS). While previous chapters established the scientific context, ethics, and problem formulation, this chapter addresses the methodological core: <strong>how to design studies that produce valid, interpretable, and reproducible evidence</strong>.</p>
+<p>Students will learn how to select appropriate research methodologies, define variables and controls, and align data, models, and evaluation strategies with their research questions.</p>
+</section>
+<hr class="docutils" />
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul class="simple">
+<li><p>Distinguish among <strong>major AI/DS research methodologies</strong>.</p></li>
+<li><p>Select an appropriate methodology aligned with a research question.</p></li>
+<li><p>Define variables, controls, and assumptions in AI/DS studies.</p></li>
+<li><p>Understand concepts of <strong>validity and reliability</strong> in computational research.</p></li>
+<li><p>Design methodologically sound studies suitable for MS-level theses.</p></li>
+<li><p>Recognize common methodological pitfalls in AI/DS research.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="what-is-research-methodology-in-ai-data-science">
+<h2>1. What Is Research Methodology in AI &amp; Data Science?<a class="headerlink" href="#what-is-research-methodology-in-ai-data-science" title="Link to this heading">#</a></h2>
+<p>Research methodology refers to the <strong>structured plan</strong> that governs how a research question is investigated. In AI/DS, methodology determines:</p>
+<ul class="simple">
+<li><p>How data are selected and processed</p></li>
+<li><p>How models or algorithms are chosen or constructed</p></li>
+<li><p>How experiments are designed and evaluated</p></li>
+<li><p>How conclusions are justified</p></li>
+</ul>
+<p>A well-defined methodology ensures that results are <strong>interpretable, defensible, and scientifically meaningful</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="major-research-methodologies-in-ai-data-science">
+<h2>2. Major Research Methodologies in AI &amp; Data Science<a class="headerlink" href="#major-research-methodologies-in-ai-data-science" title="Link to this heading">#</a></h2>
+<section id="experimental-methodology">
+<h3>2.1 Experimental Methodology<a class="headerlink" href="#experimental-methodology" title="Link to this heading">#</a></h3>
+<p>Experimental research involves <strong>controlled manipulation</strong> of variables to test hypotheses.</p>
+<p>Typical characteristics:</p>
+<ul class="simple">
+<li><p>Explicit independent and dependent variables</p></li>
+<li><p>Controlled conditions</p></li>
+<li><p>Baseline comparisons</p></li>
+</ul>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>Comparing model architectures under identical datasets</p></li>
+<li><p>Ablation studies</p></li>
+<li><p>Controlled hyperparameter experiments</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="empirical-methodology">
+<h3>2.2 Empirical Methodology<a class="headerlink" href="#empirical-methodology" title="Link to this heading">#</a></h3>
+<p>Empirical research focuses on <strong>observing and measuring</strong> behavior without strong manipulation.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>Benchmarking across datasets</p></li>
+<li><p>Performance analysis under distribution shift</p></li>
+<li><p>Bias and robustness audits</p></li>
+</ul>
+<p>Empirical studies often generate insights about real-world behavior rather than causal mechanisms.</p>
+</section>
+<hr class="docutils" />
+<section id="algorithmic-and-constructive-methodology">
+<h3>2.3 Algorithmic and Constructive Methodology<a class="headerlink" href="#algorithmic-and-constructive-methodology" title="Link to this heading">#</a></h3>
+<p>Algorithmic research introduces <strong>new methods or systems</strong>, often supported by:</p>
+<ul class="simple">
+<li><p>Theoretical analysis</p></li>
+<li><p>Empirical validation</p></li>
+<li><p>Comparative evaluation</p></li>
+</ul>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>Novel training strategies</p></li>
+<li><p>New optimization techniques</p></li>
+<li><p>Hybrid learning architectures</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="simulation-based-methodology">
+<h3>2.4 Simulation-Based Methodology<a class="headerlink" href="#simulation-based-methodology" title="Link to this heading">#</a></h3>
+<p>Simulation is used when real-world experimentation is impractical.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>Synthetic data generation</p></li>
+<li><p>Agent-based simulations</p></li>
+<li><p>Controlled environment modeling</p></li>
+</ul>
+<p>Simulation enables exploration but requires careful justification of assumptions.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="defining-variables-and-controls">
+<h2>3. Defining Variables and Controls<a class="headerlink" href="#defining-variables-and-controls" title="Link to this heading">#</a></h2>
+<section id="independent-and-dependent-variables">
+<h3>3.1 Independent and Dependent Variables<a class="headerlink" href="#independent-and-dependent-variables" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Independent variables</strong>: factors manipulated or compared (e.g., model type).</p></li>
+<li><p><strong>Dependent variables</strong>: measured outcomes (e.g., accuracy, fairness metrics).</p></li>
+</ul>
+<p>Clear variable definitions are essential for interpretability.</p>
+</section>
+<hr class="docutils" />
+<section id="control-conditions-and-baselines">
+<h3>3.2 Control Conditions and Baselines<a class="headerlink" href="#control-conditions-and-baselines" title="Link to this heading">#</a></h3>
+<p>Baselines provide reference points against which new methods are evaluated.</p>
+<p>Good baselines are:</p>
+<ul class="simple">
+<li><p>Representative of current practice</p></li>
+<li><p>Appropriately tuned</p></li>
+<li><p>Transparent and reproducible</p></li>
+</ul>
+<p>Poor baseline selection is a common methodological flaw.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="validity-and-reliability-in-ai-ds-research">
+<h2>4. Validity and Reliability in AI/DS Research<a class="headerlink" href="#validity-and-reliability-in-ai-ds-research" title="Link to this heading">#</a></h2>
+<section id="internal-validity">
+<h3>4.1 Internal Validity<a class="headerlink" href="#internal-validity" title="Link to this heading">#</a></h3>
+<p>Internal validity concerns whether observed effects are attributable to the intended factors.</p>
+<p>Threats include:</p>
+<ul class="simple">
+<li><p>Data leakage</p></li>
+<li><p>Confounding variables</p></li>
+<li><p>Inconsistent preprocessing</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="external-validity">
+<h3>4.2 External Validity<a class="headerlink" href="#external-validity" title="Link to this heading">#</a></h3>
+<p>External validity addresses generalizability.</p>
+<p>Questions include:</p>
+<ul class="simple">
+<li><p>Do results hold across datasets?</p></li>
+<li><p>Are assumptions realistic?</p></li>
+<li><p>Is the domain representative?</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="reliability-and-robustness">
+<h3>4.3 Reliability and Robustness<a class="headerlink" href="#reliability-and-robustness" title="Link to this heading">#</a></h3>
+<p>Reliable results are:</p>
+<ul class="simple">
+<li><p>Consistent across runs</p></li>
+<li><p>Stable under minor perturbations</p></li>
+<li><p>Supported by uncertainty analysis</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="methodological-alignment-with-research-questions">
+<h2>5. Methodological Alignment with Research Questions<a class="headerlink" href="#methodological-alignment-with-research-questions" title="Link to this heading">#</a></h2>
+<p>A strong methodology:</p>
+<ul class="simple">
+<li><p>Directly addresses the research question</p></li>
+<li><p>Matches the level of abstraction (theoretical vs. applied)</p></li>
+<li><p>Is feasible within available resources</p></li>
+<li><p>Accounts for ethical and legal constraints</p></li>
+</ul>
+<p>Methodology should be justified explicitly, not assumed.</p>
+</section>
+<hr class="docutils" />
+<section id="common-methodological-pitfalls">
+<h2>6. Common Methodological Pitfalls<a class="headerlink" href="#common-methodological-pitfalls" title="Link to this heading">#</a></h2>
+<p>Common issues include:</p>
+<ul class="simple">
+<li><p>Overfitting methodology to a single dataset</p></li>
+<li><p>Inadequate evaluation metrics</p></li>
+<li><p>Unjustified experimental design choices</p></li>
+<li><p>Ignoring negative or null results</p></li>
+<li><p>Methodological mismatch with research goals</p></li>
+</ul>
+<p>Recognizing these pitfalls early improves research quality.</p>
+</section>
+<hr class="docutils" />
+<section id="methodology-documentation-and-transparency">
+<h2>7. Methodology Documentation and Transparency<a class="headerlink" href="#methodology-documentation-and-transparency" title="Link to this heading">#</a></h2>
+<p>Scientific credibility depends on transparency:</p>
+<ul class="simple">
+<li><p>Explicit assumptions</p></li>
+<li><p>Clear methodological steps</p></li>
+<li><p>Justification of design decisions</p></li>
+<li><p>Limitations and threats to validity</p></li>
+</ul>
+<p>Well-documented methodology supports reproducibility and peer review.</p>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Research methodology defines how scientific questions are answered.</p></li>
+<li><p>AI/DS research employs multiple methodological paradigms.</p></li>
+<li><p>Variable definition and baseline selection are critical.</p></li>
+<li><p>Validity and reliability are essential for scientific credibility.</p></li>
+<li><p>Methodological transparency strengthens reproducibility and trust.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="reflection-questions">
+<h2>Reflection Questions<a class="headerlink" href="#reflection-questions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>How does research methodology differ from implementation details in AI/DS?</p></li>
+<li><p>What criteria should guide the choice of methodology for a research question?</p></li>
+<li><p>How can poor baseline selection distort research conclusions?</p></li>
+<li><p>What threats to validity are most common in AI/DS research?</p></li>
+<li><p>How should limitations be addressed in a scientific methodology section?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-methodology-classification">
+<h3>Exercise 1 — Methodology Classification<a class="headerlink" href="#exercise-1-methodology-classification" title="Link to this heading">#</a></h3>
+<p>Select three recent AI research papers and classify each according to:</p>
+<ul class="simple">
+<li><p>Research methodology</p></li>
+<li><p>Variables and controls</p></li>
+<li><p>Evaluation approach</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="exercise-2-methodology-design">
+<h3>Exercise 2 — Methodology Design<a class="headerlink" href="#exercise-2-methodology-design" title="Link to this heading">#</a></h3>
+<p>For your research question:</p>
+<ul class="simple">
+<li><p>Identify the most appropriate methodology</p></li>
+<li><p>Define independent and dependent variables</p></li>
+<li><p>Specify at least one baseline and control condition</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="exercise-3-validity-analysis">
+<h3>Exercise 3 — Validity Analysis<a class="headerlink" href="#exercise-3-validity-analysis" title="Link to this heading">#</a></h3>
+<p>Analyze your proposed methodology and identify:</p>
+<ul class="simple">
+<li><p>Potential threats to internal validity</p></li>
+<li><p>Potential threats to external validity</p></li>
+<li><p>Mitigation strategies for each</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="further-reading-recent-literature">
+<h2>Further Reading (Recent Literature)<a class="headerlink" href="#further-reading-recent-literature" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Bommasani, R., et al. (2023). On the opportunities and risks of foundation models. <em>Stanford Center for Research on Foundation Models</em>. <a class="reference external" href="https://doi.org/10.48550/arXiv.2108.07258">https://doi.org/10.48550/arXiv.2108.07258</a></p></li>
+<li><p>Raji, I. D., et al. (2023). Closing the AI accountability gap: Defining an end-to-end framework for internal algorithmic auditing. <em>Proceedings of the ACM Conference on Fairness, Accountability, and Transparency</em>, 33–44. <a class="reference external" href="https://doi.org/10.1145/3593013.3594013">https://doi.org/10.1145/3593013.3594013</a></p></li>
+<li><p>Ji, Z., et al. (2023). Survey of hallucination in natural language generation. <em>ACM Computing Surveys, 55</em>(12), 1–38. <a class="reference external" href="https://doi.org/10.1145/3571730">https://doi.org/10.1145/3571730</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="whats-next">
+<h2>What’s Next<a class="headerlink" href="#whats-next" title="Link to this heading">#</a></h2>
+<p>In <strong>Chapter 6</strong>, we will focus on <strong>experimental design and evaluation</strong>, examining how datasets, metrics, baselines, and statistical reasoning are used to produce credible empirical evidence in AI and Data Science.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter4_LiteratureReview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 4 — Literature Review as Scientific Evidence</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter6_ExperimentalDesign.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 6 — Experimental Design and Evaluation in AI &amp; Data Science</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-research-methodology-in-ai-data-science">1. What Is Research Methodology in AI &amp; Data Science?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#major-research-methodologies-in-ai-data-science">2. Major Research Methodologies in AI &amp; Data Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-methodology">2.1 Experimental Methodology</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-methodology">2.2 Empirical Methodology</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmic-and-constructive-methodology">2.3 Algorithmic and Constructive Methodology</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-based-methodology">2.4 Simulation-Based Methodology</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-variables-and-controls">3. Defining Variables and Controls</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-and-dependent-variables">3.1 Independent and Dependent Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#control-conditions-and-baselines">3.2 Control Conditions and Baselines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-and-reliability-in-ai-ds-research">4. Validity and Reliability in AI/DS Research</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-validity">4.1 Internal Validity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#external-validity">4.2 External Validity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reliability-and-robustness">4.3 Reliability and Robustness</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodological-alignment-with-research-questions">5. Methodological Alignment with Research Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-methodological-pitfalls">6. Common Methodological Pitfalls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology-documentation-and-transparency">7. Methodology Documentation and Transparency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-methodology-classification">Exercise 1 — Methodology Classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-methodology-design">Exercise 2 — Methodology Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-validity-analysis">Exercise 3 — Validity Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading-recent-literature">Further Reading (Recent Literature)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Leandro Nunes de Castro, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

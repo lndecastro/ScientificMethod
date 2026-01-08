@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 7 — Reproducibility, Tooling, and Research Pipelines &#8212; Temp Book 4</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter7_Reproducibility';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 8 — Preliminary Experimentation and Iterative Refinement" href="Chapter8_Experimentation.html" />
+    <link rel="prev" title="Chapter 6 — Experimental Design and Evaluation in AI &amp; Data Science" href="Chapter6_ExperimentalDesign.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/dendritic_logo.png" class="logo__image only-light" alt="Temp Book 4 - Home"/>
+    <script>document.write(`<img src="_static/dendritic_logo.png" class="logo__image only-dark" alt="Temp Book 4 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Scientific Method for Artificial Intelligence & Data Science
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter1_ScientificResearch.html">Chapter 1: Scientific Research in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter2_ResearchParadigms.html">Chapter 2: Research Paradigms, Ethics, and Responsible AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter3_ResearchQuestion.html">Chapter 3: From Problem Area to Research Question</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter4_LiteratureReview.html">Chapter 4: Literature Review as Scientific Evidence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter5_ResearchMethodology.html">Chapter 5: Research Methodology in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter6_ExperimentalDesign.html">Chapter 6: Experimental Design and Evaluation in AI &amp; Data Science</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 7: Reproducibility, Tooling, and Research Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter8_Experimentation.html">Chapter 8: Preliminary Experimentation and Iterative Refinement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter9_Writing.html">Chapter 9: Scientific Writing and Thesis Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter10_Defense.html">Chapter 10: Research Communication and Defense</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/lndecastro/tempBook4" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/lndecastro/tempBook4/edit/master/docs/Chapter7_Reproducibility.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Chapter7_Reproducibility.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 7 — Reproducibility, Tooling, and Research Pipelines</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility-as-a-scientific-principle">1. Reproducibility as a Scientific Principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility-replicability-and-robustness">2. Reproducibility, Replicability, and Robustness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structuring-an-ai-ds-research-project">3. Structuring an AI/DS Research Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control-for-scientific-research">4. Version Control for Scientific Research</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-versioning">4.1 Code Versioning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-model-versioning">4.2 Data and Model Versioning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-tracking-and-metadata">5. Experiment Tracking and Metadata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-management-and-dependency-control">6. Environment Management and Dependency Control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-pipelines-and-automation">7. Research Pipelines and Automation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-and-research-artifacts">8. Documentation and Research Artifacts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transparency-auditing-and-open-science">9. Transparency, Auditing, and Open Science</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-reproducibility-failures-in-ai-ds">10. Common Reproducibility Failures in AI/DS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-project-structuring">Exercise 1 — Project Structuring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-reproducibility-checklist">Exercise 2 — Reproducibility Checklist</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-pipeline-design">Exercise 3 — Pipeline Design</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading-recent-literature">Further Reading (Recent Literature)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-7-reproducibility-tooling-and-research-pipelines">
+<h1>Chapter 7 — Reproducibility, Tooling, and Research Pipelines<a class="headerlink" href="#chapter-7-reproducibility-tooling-and-research-pipelines" title="Link to this heading">#</a></h1>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
+<p>This chapter focuses on the <strong>operational foundations of scientific rigor</strong> in Artificial Intelligence (AI) and Data Science (DS): reproducibility, tooling, and research pipelines. Even well-designed experiments and sound evaluations lose scientific value if results cannot be reproduced, audited, or extended.</p>
+<p>Students will learn how to structure AI/DS research projects using modern tools and workflows that support <strong>repeatability, transparency, and collaboration</strong>, transforming experimental code into credible scientific artifacts.</p>
+</section>
+<hr class="docutils" />
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul class="simple">
+<li><p>Explain why <strong>reproducibility</strong> is a core requirement of scientific research.</p></li>
+<li><p>Distinguish between reproducibility, replicability, and robustness.</p></li>
+<li><p>Organize AI/DS research projects using principled directory and code structures.</p></li>
+<li><p>Use version control to manage research artifacts and collaboration.</p></li>
+<li><p>Track experiments and results systematically.</p></li>
+<li><p>Manage data, models, and environments to support repeatable research.</p></li>
+<li><p>Document research pipelines for auditability and reuse.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="reproducibility-as-a-scientific-principle">
+<h2>1. Reproducibility as a Scientific Principle<a class="headerlink" href="#reproducibility-as-a-scientific-principle" title="Link to this heading">#</a></h2>
+<p>Reproducibility refers to the ability of independent researchers to <strong>obtain the same results using the same data, code, and methodology</strong>. In AI/DS, reproducibility is challenged by:</p>
+<ul class="simple">
+<li><p>Random initialization and stochastic optimization</p></li>
+<li><p>Hardware and software dependencies</p></li>
+<li><p>Data preprocessing variability</p></li>
+<li><p>Undocumented experimental decisions</p></li>
+</ul>
+<p>Scientific credibility depends on minimizing these sources of ambiguity.</p>
+</section>
+<hr class="docutils" />
+<section id="reproducibility-replicability-and-robustness">
+<h2>2. Reproducibility, Replicability, and Robustness<a class="headerlink" href="#reproducibility-replicability-and-robustness" title="Link to this heading">#</a></h2>
+<p>Although often used interchangeably, these concepts are distinct:</p>
+<ul class="simple">
+<li><p><strong>Reproducibility</strong>: Same data, same code, same results.</p></li>
+<li><p><strong>Replicability</strong>: New implementation or dataset yields consistent findings.</p></li>
+<li><p><strong>Robustness</strong>: Results remain stable under perturbations or variations.</p></li>
+</ul>
+<p>Strong research aims to address all three, even if only reproducibility is required at minimum.</p>
+</section>
+<hr class="docutils" />
+<section id="structuring-an-ai-ds-research-project">
+<h2>3. Structuring an AI/DS Research Project<a class="headerlink" href="#structuring-an-ai-ds-research-project" title="Link to this heading">#</a></h2>
+<p>A clear project structure supports clarity and reuse.</p>
+<p>Typical components include:</p>
+<ul class="simple">
+<li><p>Data ingestion and preprocessing modules</p></li>
+<li><p>Model definitions and training scripts</p></li>
+<li><p>Experiment configuration files</p></li>
+<li><p>Evaluation and analysis scripts</p></li>
+<li><p>Documentation and metadata</p></li>
+</ul>
+<p>Separating concerns improves maintainability and scientific transparency.</p>
+</section>
+<hr class="docutils" />
+<section id="version-control-for-scientific-research">
+<h2>4. Version Control for Scientific Research<a class="headerlink" href="#version-control-for-scientific-research" title="Link to this heading">#</a></h2>
+<section id="code-versioning">
+<h3>4.1 Code Versioning<a class="headerlink" href="#code-versioning" title="Link to this heading">#</a></h3>
+<p>Version control systems enable:</p>
+<ul class="simple">
+<li><p>Tracking of code changes</p></li>
+<li><p>Reversion to previous states</p></li>
+<li><p>Collaboration and peer review</p></li>
+</ul>
+<p>Research code should be treated as a <strong>first-class scientific artifact</strong>, not disposable scripts.</p>
+</section>
+<hr class="docutils" />
+<section id="data-and-model-versioning">
+<h3>4.2 Data and Model Versioning<a class="headerlink" href="#data-and-model-versioning" title="Link to this heading">#</a></h3>
+<p>Data and trained models evolve over time. Without versioning:</p>
+<ul class="simple">
+<li><p>Results cannot be reliably reproduced</p></li>
+<li><p>Comparisons become ambiguous</p></li>
+<li><p>Errors propagate unnoticed</p></li>
+</ul>
+<p>Clear versioning policies are essential for experimental integrity.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="experiment-tracking-and-metadata">
+<h2>5. Experiment Tracking and Metadata<a class="headerlink" href="#experiment-tracking-and-metadata" title="Link to this heading">#</a></h2>
+<p>Experiment tracking involves recording:</p>
+<ul class="simple">
+<li><p>Hyperparameters</p></li>
+<li><p>Random seeds</p></li>
+<li><p>Dataset versions</p></li>
+<li><p>Software environments</p></li>
+<li><p>Evaluation results</p></li>
+</ul>
+<p>Systematic tracking prevents reliance on memory or ad hoc notes and supports reliable comparison across runs.</p>
+</section>
+<hr class="docutils" />
+<section id="environment-management-and-dependency-control">
+<h2>6. Environment Management and Dependency Control<a class="headerlink" href="#environment-management-and-dependency-control" title="Link to this heading">#</a></h2>
+<p>AI/DS experiments are sensitive to:</p>
+<ul class="simple">
+<li><p>Library versions</p></li>
+<li><p>Hardware accelerators</p></li>
+<li><p>Operating system differences</p></li>
+</ul>
+<p>Environment management strategies help ensure consistency across machines and time. Explicit documentation of dependencies is part of scientific reporting.</p>
+</section>
+<hr class="docutils" />
+<section id="research-pipelines-and-automation">
+<h2>7. Research Pipelines and Automation<a class="headerlink" href="#research-pipelines-and-automation" title="Link to this heading">#</a></h2>
+<p>Research pipelines formalize the flow from:</p>
+<ul class="simple">
+<li><p>Raw data → processed data → trained models → evaluated results</p></li>
+</ul>
+<p>Automation reduces human error and increases repeatability. Pipelines also clarify dependencies between experimental steps, aiding debugging and extension.</p>
+</section>
+<hr class="docutils" />
+<section id="documentation-and-research-artifacts">
+<h2>8. Documentation and Research Artifacts<a class="headerlink" href="#documentation-and-research-artifacts" title="Link to this heading">#</a></h2>
+<p>Scientific documentation includes:</p>
+<ul class="simple">
+<li><p>README files describing project goals and structure</p></li>
+<li><p>Experiment logs and configuration files</p></li>
+<li><p>Clear instructions for reproducing results</p></li>
+<li><p>Explicit statements of assumptions and limitations</p></li>
+</ul>
+<p>Well-documented artifacts support peer review, advisor oversight, and long-term reuse.</p>
+</section>
+<hr class="docutils" />
+<section id="transparency-auditing-and-open-science">
+<h2>9. Transparency, Auditing, and Open Science<a class="headerlink" href="#transparency-auditing-and-open-science" title="Link to this heading">#</a></h2>
+<p>Transparent research practices enable:</p>
+<ul class="simple">
+<li><p>External auditing</p></li>
+<li><p>Error detection</p></li>
+<li><p>Knowledge transfer</p></li>
+</ul>
+<p>Open science principles encourage sharing code, data (when permitted), and experimental details, strengthening the scientific ecosystem.</p>
+</section>
+<hr class="docutils" />
+<section id="common-reproducibility-failures-in-ai-ds">
+<h2>10. Common Reproducibility Failures in AI/DS<a class="headerlink" href="#common-reproducibility-failures-in-ai-ds" title="Link to this heading">#</a></h2>
+<p>Frequent issues include:</p>
+<ul class="simple">
+<li><p>Missing or inconsistent random seeds</p></li>
+<li><p>Untracked data preprocessing steps</p></li>
+<li><p>Overwritten experimental results</p></li>
+<li><p>Environment drift</p></li>
+<li><p>Incomplete documentation</p></li>
+</ul>
+<p>Recognizing and mitigating these failures is essential for scientific reliability.</p>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Reproducibility is foundational to scientific credibility in AI/DS.</p></li>
+<li><p>Clear project structure and tooling support rigorous research.</p></li>
+<li><p>Version control, experiment tracking, and environment management are essential.</p></li>
+<li><p>Research pipelines reduce error and improve transparency.</p></li>
+<li><p>Documentation transforms experiments into scientific artifacts.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="reflection-questions">
+<h2>Reflection Questions<a class="headerlink" href="#reflection-questions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Why is reproducibility particularly challenging in AI/DS research?</p></li>
+<li><p>How do reproducibility and robustness differ in their scientific implications?</p></li>
+<li><p>What risks arise from poor experiment tracking?</p></li>
+<li><p>How can automation improve both rigor and efficiency in research?</p></li>
+<li><p>What ethical responsibilities are associated with reproducible research?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-project-structuring">
+<h3>Exercise 1 — Project Structuring<a class="headerlink" href="#exercise-1-project-structuring" title="Link to this heading">#</a></h3>
+<p>Design a directory structure for your research project that clearly separates:</p>
+<ul class="simple">
+<li><p>Data</p></li>
+<li><p>Models</p></li>
+<li><p>Experiments</p></li>
+<li><p>Evaluation</p></li>
+<li><p>Documentation</p></li>
+</ul>
+<p>Explain the rationale for each component.</p>
+</section>
+<hr class="docutils" />
+<section id="exercise-2-reproducibility-checklist">
+<h3>Exercise 2 — Reproducibility Checklist<a class="headerlink" href="#exercise-2-reproducibility-checklist" title="Link to this heading">#</a></h3>
+<p>Create a checklist that another researcher would need to reproduce one of your experiments, including:</p>
+<ul class="simple">
+<li><p>Data sources</p></li>
+<li><p>Code versions</p></li>
+<li><p>Environment specifications</p></li>
+<li><p>Execution steps</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="exercise-3-pipeline-design">
+<h3>Exercise 3 — Pipeline Design<a class="headerlink" href="#exercise-3-pipeline-design" title="Link to this heading">#</a></h3>
+<p>Sketch a research pipeline for your project, identifying:</p>
+<ul class="simple">
+<li><p>Inputs and outputs at each stage</p></li>
+<li><p>Points of automation</p></li>
+<li><p>Sources of variability that must be controlled</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="further-reading-recent-literature">
+<h2>Further Reading (Recent Literature)<a class="headerlink" href="#further-reading-recent-literature" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Raji, I. D., et al. (2023). Closing the AI accountability gap: Defining an end-to-end framework for internal algorithmic auditing. <em>Proceedings of the ACM Conference on Fairness, Accountability, and Transparency</em>, 33–44. <a class="reference external" href="https://doi.org/10.1145/3593013.3594013">https://doi.org/10.1145/3593013.3594013</a></p></li>
+<li><p>Bommasani, R., et al. (2023). On the opportunities and risks of foundation models. <em>Stanford Center for Research on Foundation Models</em>. <a class="reference external" href="https://doi.org/10.48550/arXiv.2108.07258">https://doi.org/10.48550/arXiv.2108.07258</a></p></li>
+<li><p>Ji, Z., et al. (2023). Survey of hallucination in natural language generation. <em>ACM Computing Surveys, 55</em>(12), 1–38. <a class="reference external" href="https://doi.org/10.1145/3571730">https://doi.org/10.1145/3571730</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="whats-next">
+<h2>What’s Next<a class="headerlink" href="#whats-next" title="Link to this heading">#</a></h2>
+<p>In <strong>Chapter 8</strong>, we will focus on <strong>preliminary experimentation and iterative refinement</strong>, examining how early experimental results guide hypothesis revision, methodological adjustments, and research direction.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter6_ExperimentalDesign.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 6 — Experimental Design and Evaluation in AI &amp; Data Science</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter8_Experimentation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 8 — Preliminary Experimentation and Iterative Refinement</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility-as-a-scientific-principle">1. Reproducibility as a Scientific Principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility-replicability-and-robustness">2. Reproducibility, Replicability, and Robustness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structuring-an-ai-ds-research-project">3. Structuring an AI/DS Research Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control-for-scientific-research">4. Version Control for Scientific Research</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-versioning">4.1 Code Versioning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-model-versioning">4.2 Data and Model Versioning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-tracking-and-metadata">5. Experiment Tracking and Metadata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-management-and-dependency-control">6. Environment Management and Dependency Control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-pipelines-and-automation">7. Research Pipelines and Automation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-and-research-artifacts">8. Documentation and Research Artifacts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transparency-auditing-and-open-science">9. Transparency, Auditing, and Open Science</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-reproducibility-failures-in-ai-ds">10. Common Reproducibility Failures in AI/DS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-project-structuring">Exercise 1 — Project Structuring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-reproducibility-checklist">Exercise 2 — Reproducibility Checklist</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-pipeline-design">Exercise 3 — Pipeline Design</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading-recent-literature">Further Reading (Recent Literature)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Leandro Nunes de Castro, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

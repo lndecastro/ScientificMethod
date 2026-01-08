@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 4 — Literature Review as Scientific Evidence &#8212; Temp Book 4</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter4_LiteratureReview';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 5 — Research Methodology in AI &amp; Data Science" href="Chapter5_ResearchMethodology.html" />
+    <link rel="prev" title="Chapter 3 — From Problem Area to Research Question" href="Chapter3_ResearchQuestion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/dendritic_logo.png" class="logo__image only-light" alt="Temp Book 4 - Home"/>
+    <script>document.write(`<img src="_static/dendritic_logo.png" class="logo__image only-dark" alt="Temp Book 4 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Scientific Method for Artificial Intelligence & Data Science
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter1_ScientificResearch.html">Chapter 1: Scientific Research in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter2_ResearchParadigms.html">Chapter 2: Research Paradigms, Ethics, and Responsible AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter3_ResearchQuestion.html">Chapter 3: From Problem Area to Research Question</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 4: Literature Review as Scientific Evidence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter5_ResearchMethodology.html">Chapter 5: Research Methodology in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter6_ExperimentalDesign.html">Chapter 6: Experimental Design and Evaluation in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter7_Reproducibility.html">Chapter 7: Reproducibility, Tooling, and Research Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter8_Experimentation.html">Chapter 8: Preliminary Experimentation and Iterative Refinement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter9_Writing.html">Chapter 9: Scientific Writing and Thesis Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter10_Defense.html">Chapter 10: Research Communication and Defense</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/lndecastro/tempBook4" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/lndecastro/tempBook4/edit/master/docs/Chapter4_LiteratureReview.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Chapter4_LiteratureReview.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 4 — Literature Review as Scientific Evidence</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-literature-review-is-central-to-science">1. Why the Literature Review Is Central to Science</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-literature-reviews-in-ai-data-science">2. Types of Literature Reviews in AI &amp; Data Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-reviews">2.1 Descriptive Reviews</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#narrative-reviews">2.2 Narrative Reviews</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#systematic-and-structured-reviews">2.3 Systematic and Structured Reviews</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-and-selecting-ai-ds-literature">3. Searching and Selecting AI/DS Literature</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-sources">3.1 Primary Sources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-strategies">3.2 Search Strategies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-papers-critically">4. Reading Papers Critically</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-gaps-and-research-opportunities">5. Identifying Gaps and Research Opportunities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthesizing-the-literature">6. Synthesizing the Literature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-related-work-section">7. Writing the Related Work Section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#responsible-use-of-ai-in-literature-reviews">8. Responsible Use of AI in Literature Reviews</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-literature-mapping">Exercise 1 — Literature Mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-gap-construction">Exercise 2 — Gap Construction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-related-work-draft">Exercise 3 — Related Work Draft</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading-recent-literature">Further Reading (Recent Literature)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-4-literature-review-as-scientific-evidence">
+<h1>Chapter 4 — Literature Review as Scientific Evidence<a class="headerlink" href="#chapter-4-literature-review-as-scientific-evidence" title="Link to this heading">#</a></h1>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
+<p>This chapter reframes the literature review as a <strong>core scientific activity</strong>, not a preliminary or administrative task. In AI and Data Science research, the literature review functions as <strong>empirical and conceptual evidence</strong> that justifies research questions, informs methodological choices, and defines the boundaries of scientific contribution.</p>
+<p>Students will learn how to conduct literature reviews that go beyond summarization, focusing instead on <strong>critical analysis, synthesis, and gap identification</strong>. By the end of this chapter, the literature review will be understood as the foundation upon which all subsequent research decisions rest.</p>
+</section>
+<hr class="docutils" />
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul class="simple">
+<li><p>Explain the role of the literature review as <strong>scientific evidence</strong>.</p></li>
+<li><p>Distinguish between <strong>descriptive, narrative, and systematic</strong> literature reviews.</p></li>
+<li><p>Locate, evaluate, and select high-quality AI/DS research sources.</p></li>
+<li><p>Identify research gaps, limitations, and unresolved questions in the literature.</p></li>
+<li><p>Synthesize prior work into coherent themes and arguments.</p></li>
+<li><p>Write a <strong>Related Work</strong> section aligned with AI/DS scholarly standards.</p></li>
+<li><p>Use AI tools responsibly to support (but not replace) scholarly judgment.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="why-the-literature-review-is-central-to-science">
+<h2>1. Why the Literature Review Is Central to Science<a class="headerlink" href="#why-the-literature-review-is-central-to-science" title="Link to this heading">#</a></h2>
+<p>In scientific research, new knowledge does not emerge in isolation. Claims are validated by positioning them relative to existing evidence. In AI and Data Science, the literature review serves to:</p>
+<ul class="simple">
+<li><p>Establish what is already known</p></li>
+<li><p>Identify what remains uncertain or contested</p></li>
+<li><p>Avoid duplication of prior work</p></li>
+<li><p>Justify the novelty and relevance of the research question</p></li>
+<li><p>Inform methodological and experimental design choices</p></li>
+</ul>
+<p>A weak literature review often leads to poorly framed research questions and superficial contributions.</p>
+</section>
+<hr class="docutils" />
+<section id="types-of-literature-reviews-in-ai-data-science">
+<h2>2. Types of Literature Reviews in AI &amp; Data Science<a class="headerlink" href="#types-of-literature-reviews-in-ai-data-science" title="Link to this heading">#</a></h2>
+<section id="descriptive-reviews">
+<h3>2.1 Descriptive Reviews<a class="headerlink" href="#descriptive-reviews" title="Link to this heading">#</a></h3>
+<p>Descriptive reviews summarize existing work without critical evaluation. While useful for initial familiarization, they are <strong>insufficient for scientific justification</strong>.</p>
+</section>
+<section id="narrative-reviews">
+<h3>2.2 Narrative Reviews<a class="headerlink" href="#narrative-reviews" title="Link to this heading">#</a></h3>
+<p>Narrative reviews synthesize findings across studies, organizing them by themes, methods, or outcomes. This is the most common form of literature review in AI/DS theses.</p>
+</section>
+<section id="systematic-and-structured-reviews">
+<h3>2.3 Systematic and Structured Reviews<a class="headerlink" href="#systematic-and-structured-reviews" title="Link to this heading">#</a></h3>
+<p>Systematic reviews follow explicit protocols for:</p>
+<ul class="simple">
+<li><p>Search strategy</p></li>
+<li><p>Inclusion and exclusion criteria</p></li>
+<li><p>Quality assessment</p></li>
+</ul>
+<p>Although less common in AI/DS than in other fields, structured reviews improve rigor and transparency, especially for comparative or survey-oriented research.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="searching-and-selecting-ai-ds-literature">
+<h2>3. Searching and Selecting AI/DS Literature<a class="headerlink" href="#searching-and-selecting-ai-ds-literature" title="Link to this heading">#</a></h2>
+<section id="primary-sources">
+<h3>3.1 Primary Sources<a class="headerlink" href="#primary-sources" title="Link to this heading">#</a></h3>
+<p>High-quality AI/DS research is typically found in:</p>
+<ul class="simple">
+<li><p>Peer-reviewed journals</p></li>
+<li><p>Top-tier conferences</p></li>
+<li><p>Reputable preprint repositories</p></li>
+</ul>
+<p>Evaluating source quality requires attention to:</p>
+<ul class="simple">
+<li><p>Venue reputation</p></li>
+<li><p>Citation patterns</p></li>
+<li><p>Methodological transparency</p></li>
+<li><p>Reproducibility artifacts</p></li>
+</ul>
+</section>
+<section id="search-strategies">
+<h3>3.2 Search Strategies<a class="headerlink" href="#search-strategies" title="Link to this heading">#</a></h3>
+<p>Effective literature searches involve:</p>
+<ul class="simple">
+<li><p>Iterative keyword refinement</p></li>
+<li><p>Backward and forward citation tracking</p></li>
+<li><p>Identification of seminal and recent works</p></li>
+<li><p>Awareness of evolving terminology</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="reading-papers-critically">
+<h2>4. Reading Papers Critically<a class="headerlink" href="#reading-papers-critically" title="Link to this heading">#</a></h2>
+<p>Reading for research differs from reading for comprehension. A critical reading focuses on:</p>
+<ul class="simple">
+<li><p>The research question and assumptions</p></li>
+<li><p>Methodological choices and limitations</p></li>
+<li><p>Experimental design and evaluation</p></li>
+<li><p>Reproducibility and transparency</p></li>
+<li><p>Claims versus evidence</p></li>
+</ul>
+<p>Not all published results are equally reliable or relevant. Scientific judgment is essential.</p>
+</section>
+<hr class="docutils" />
+<section id="identifying-gaps-and-research-opportunities">
+<h2>5. Identifying Gaps and Research Opportunities<a class="headerlink" href="#identifying-gaps-and-research-opportunities" title="Link to this heading">#</a></h2>
+<p>Research gaps may arise from:</p>
+<ul class="simple">
+<li><p>Contradictory findings</p></li>
+<li><p>Underexplored datasets or domains</p></li>
+<li><p>Methodological weaknesses</p></li>
+<li><p>Unexamined assumptions</p></li>
+<li><p>Lack of replication or acknowledgment of limitations</p></li>
+</ul>
+<p>Importantly, gaps are <strong>constructed through analysis</strong>, not discovered automatically.</p>
+</section>
+<hr class="docutils" />
+<section id="synthesizing-the-literature">
+<h2>6. Synthesizing the Literature<a class="headerlink" href="#synthesizing-the-literature" title="Link to this heading">#</a></h2>
+<p>Synthesis involves:</p>
+<ul class="simple">
+<li><p>Grouping studies by themes, methods, or outcomes</p></li>
+<li><p>Comparing strengths and weaknesses</p></li>
+<li><p>Highlighting trade-offs and open challenges</p></li>
+<li><p>Building a coherent narrative that leads logically to the research question</p></li>
+</ul>
+<p>A strong synthesis demonstrates intellectual control over the research landscape.</p>
+</section>
+<hr class="docutils" />
+<section id="writing-the-related-work-section">
+<h2>7. Writing the Related Work Section<a class="headerlink" href="#writing-the-related-work-section" title="Link to this heading">#</a></h2>
+<p>An effective Related Work section:</p>
+<ul class="simple">
+<li><p>Is organized thematically, not paper-by-paper</p></li>
+<li><p>Clearly positions the current research</p></li>
+<li><p>Avoids excessive detail on irrelevant studies</p></li>
+<li><p>Emphasizes limitations and open questions</p></li>
+</ul>
+<p>The goal is not completeness, but <strong>relevance and clarity</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="responsible-use-of-ai-in-literature-reviews">
+<h2>8. Responsible Use of AI in Literature Reviews<a class="headerlink" href="#responsible-use-of-ai-in-literature-reviews" title="Link to this heading">#</a></h2>
+<p>AI tools can assist with:</p>
+<ul class="simple">
+<li><p>Discovering relevant literature</p></li>
+<li><p>Summarizing papers</p></li>
+<li><p>Identifying thematic patterns</p></li>
+</ul>
+<p>However, researchers remain responsible for:</p>
+<ul class="simple">
+<li><p>Verifying accuracy</p></li>
+<li><p>Ensuring proper citation</p></li>
+<li><p>Avoiding hallucinated or fabricated sources</p></li>
+<li><p>Maintaining intellectual ownership of synthesis and argumentation</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The literature review functions as <strong>scientific evidence</strong>, not background material.</p></li>
+<li><p>Critical analysis and synthesis are essential for scientific contribution.</p></li>
+<li><p>Different review types serve different research goals.</p></li>
+<li><p>Identifying research gaps requires interpretation and judgment.</p></li>
+<li><p>Responsible use of AI tools can support, but not replace, scholarly reasoning.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="reflection-questions">
+<h2>Reflection Questions<a class="headerlink" href="#reflection-questions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Why is a descriptive literature review insufficient for scientific research?</p></li>
+<li><p>How does synthesis differ from summarization in AI/DS literature reviews?</p></li>
+<li><p>What criteria should be used to assess the quality of an AI research paper?</p></li>
+<li><p>How can poor literature review practices undermine experimental design?</p></li>
+<li><p>What risks arise from over-reliance on AI tools during literature review?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-literature-mapping">
+<h3>Exercise 1 — Literature Mapping<a class="headerlink" href="#exercise-1-literature-mapping" title="Link to this heading">#</a></h3>
+<p>Select 8–10 papers related to your research area and:</p>
+<ul class="simple">
+<li><p>Categorize them by methodology and contribution</p></li>
+<li><p>Identify at least two recurring limitations or open questions</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="exercise-2-gap-construction">
+<h3>Exercise 2 — Gap Construction<a class="headerlink" href="#exercise-2-gap-construction" title="Link to this heading">#</a></h3>
+<p>Using a small set of related papers, write a short paragraph that:</p>
+<ul class="simple">
+<li><p>Synthesizes their contributions</p></li>
+<li><p>Explicitly identifies a research gap your work could address</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="exercise-3-related-work-draft">
+<h3>Exercise 3 — Related Work Draft<a class="headerlink" href="#exercise-3-related-work-draft" title="Link to this heading">#</a></h3>
+<p>Draft a one-page Related Work section that:</p>
+<ul class="simple">
+<li><p>Organizes prior studies thematically</p></li>
+<li><p>Clearly positions your research question</p></li>
+<li><p>Avoids paper-by-paper summaries</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="further-reading-recent-literature">
+<h2>Further Reading (Recent Literature)<a class="headerlink" href="#further-reading-recent-literature" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Bommasani, R., et al. (2023). On the opportunities and risks of foundation models. <em>Stanford Center for Research on Foundation Models</em>. <a class="reference external" href="https://doi.org/10.48550/arXiv.2108.07258">https://doi.org/10.48550/arXiv.2108.07258</a></p></li>
+<li><p>Ji, Z., et al. (2023). Survey of hallucination in natural language generation. <em>ACM Computing Surveys, 55</em>(12), 1–38. <a class="reference external" href="https://doi.org/10.1145/3571730">https://doi.org/10.1145/3571730</a></p></li>
+<li><p>Raji, I. D., et al. (2023). Closing the AI accountability gap: Defining an end-to-end framework for internal algorithmic auditing. <em>Proceedings of the ACM Conference on Fairness, Accountability, and Transparency</em>, 33–44. <a class="reference external" href="https://doi.org/10.1145/3593013.3594013">https://doi.org/10.1145/3593013.3594013</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="whats-next">
+<h2>What’s Next<a class="headerlink" href="#whats-next" title="Link to this heading">#</a></h2>
+<p>In <strong>Chapter 5</strong>, we will examine <strong>research methodology in AI and Data Science</strong>, focusing on how to translate research questions into rigorous experimental and empirical designs.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter3_ResearchQuestion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 3 — From Problem Area to Research Question</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter5_ResearchMethodology.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 5 — Research Methodology in AI &amp; Data Science</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-the-literature-review-is-central-to-science">1. Why the Literature Review Is Central to Science</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-literature-reviews-in-ai-data-science">2. Types of Literature Reviews in AI &amp; Data Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-reviews">2.1 Descriptive Reviews</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#narrative-reviews">2.2 Narrative Reviews</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#systematic-and-structured-reviews">2.3 Systematic and Structured Reviews</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-and-selecting-ai-ds-literature">3. Searching and Selecting AI/DS Literature</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-sources">3.1 Primary Sources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-strategies">3.2 Search Strategies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-papers-critically">4. Reading Papers Critically</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-gaps-and-research-opportunities">5. Identifying Gaps and Research Opportunities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthesizing-the-literature">6. Synthesizing the Literature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-the-related-work-section">7. Writing the Related Work Section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#responsible-use-of-ai-in-literature-reviews">8. Responsible Use of AI in Literature Reviews</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-literature-mapping">Exercise 1 — Literature Mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-gap-construction">Exercise 2 — Gap Construction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-related-work-draft">Exercise 3 — Related Work Draft</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading-recent-literature">Further Reading (Recent Literature)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Leandro Nunes de Castro, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,778 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 1 — Scientific Research in AI &amp; Data Science &#8212; Temp Book 4</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter1_ScientificResearch';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 2 — Research Paradigms, Ethics, and Responsible AI" href="Chapter2_ResearchParadigms.html" />
+    <link rel="prev" title="Scientific Method for Artificial Intelligence &amp; Data Science" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/dendritic_logo.png" class="logo__image only-light" alt="Temp Book 4 - Home"/>
+    <script>document.write(`<img src="_static/dendritic_logo.png" class="logo__image only-dark" alt="Temp Book 4 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Scientific Method for Artificial Intelligence & Data Science
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 1: Scientific Research in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter2_ResearchParadigms.html">Chapter 2: Research Paradigms, Ethics, and Responsible AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter3_ResearchQuestion.html">Chapter 3: From Problem Area to Research Question</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter4_LiteratureReview.html">Chapter 4: Literature Review as Scientific Evidence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter5_ResearchMethodology.html">Chapter 5: Research Methodology in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter6_ExperimentalDesign.html">Chapter 6: Experimental Design and Evaluation in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter7_Reproducibility.html">Chapter 7: Reproducibility, Tooling, and Research Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter8_Experimentation.html">Chapter 8: Preliminary Experimentation and Iterative Refinement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter9_Writing.html">Chapter 9: Scientific Writing and Thesis Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter10_Defense.html">Chapter 10: Research Communication and Defense</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/lndecastro/tempBook4" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/lndecastro/tempBook4/edit/master/docs/Chapter1_ScientificResearch.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Chapter1_ScientificResearch.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 1 — Scientific Research in AI & Data Science</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-scientific-method-in-computational-sciences">1. The Scientific Method in Computational Sciences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-paradigms-in-ai-data-science">2. Research Paradigms in AI &amp; Data Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-research">2.1 Empirical Research</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-research">2.2 Experimental Research</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmic-research">2.3 Algorithmic Research</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ai-ds-research-cycle">3. The AI/DS Research Cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility-rigor-and-falsifiability">4. Reproducibility, Rigor, and Falsifiability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility">4.1 Reproducibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rigor">4.2 Rigor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#falsifiability">4.3 Falsifiability</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-failure-modes-in-ai-ds-research">5. Common Failure Modes in AI/DS Research</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-of-theory-data-and-computation">6. The Role of Theory, Data, and Computation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-identifying-scientific-claims">Exercise 1 — Identifying Scientific Claims</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-failure-mode-analysis">Exercise 2 — Failure Mode Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-research-interest-mapping">Exercise 3 — Research Interest Mapping</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading-recent-literature">Further Reading (Recent Literature)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-1-scientific-research-in-ai-data-science">
+<h1>Chapter 1 — Scientific Research in AI &amp; Data Science<a class="headerlink" href="#chapter-1-scientific-research-in-ai-data-science" title="Link to this heading">#</a></h1>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
+<p>This chapter establishes <strong>what counts as scientific research in Artificial Intelligence (AI) and Data Science (DS)</strong> and clarifies why this course exists.<br />
+Rather than treating AI research as ad hoc experimentation or model tuning, this chapter frames AI/DS work as a <strong>systematic, empirical, and reproducible scientific process</strong> grounded in the scientific method.</p>
+<p>By the end of this chapter, students should understand that credible AI/DS research requires more than achieving high performance metrics: it demands rigor, transparency, theoretical grounding, and reproducibility.</p>
+</section>
+<hr class="docutils" />
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul class="simple">
+<li><p>Explain the role of the <strong>scientific method</strong> in AI and Data Science research.</p></li>
+<li><p>Distinguish between <strong>empirical, experimental, and algorithmic</strong> research paradigms.</p></li>
+<li><p>Describe the iterative research cycle from observation to analysis and refinement.</p></li>
+<li><p>Identify the importance of <strong>reproducibility, rigor, and falsifiability</strong> in AI research.</p></li>
+<li><p>Recognize common <strong>failure modes</strong> in AI/DS research practice.</p></li>
+<li><p>Articulate the complementary roles of <strong>theory, data, and computation</strong> in scientific inquiry.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="the-scientific-method-in-computational-sciences">
+<h2>1. The Scientific Method in Computational Sciences<a class="headerlink" href="#the-scientific-method-in-computational-sciences" title="Link to this heading">#</a></h2>
+<p>The scientific method provides a structured approach for generating, testing, and refining knowledge. In AI and Data Science, this method must be adapted to computational artifacts such as datasets, algorithms, models, and simulations.</p>
+<p>At a high level, the scientific method in AI/DS involves:</p>
+<ol class="arabic simple">
+<li><p><strong>Observation</strong> of a phenomenon or problem (e.g., model degradation, bias, inefficiency).</p></li>
+<li><p><strong>Question formulation</strong> grounded in prior work.</p></li>
+<li><p><strong>Hypothesis development</strong> about expected behaviors or improvements.</p></li>
+<li><p><strong>Experimentation</strong> using data, models, and controlled procedures.</p></li>
+<li><p><strong>Analysis</strong> of results using appropriate metrics and statistical reasoning.</p></li>
+<li><p><strong>Iteration</strong>, refinement, or rejection of hypotheses.</p></li>
+</ol>
+<p>Unlike traditional laboratory sciences, AI/DS research often relies on <strong>computational experiments</strong>, simulations, and large-scale datasets, which introduces unique challenges related to reproducibility, bias, and interpretability.</p>
+</section>
+<hr class="docutils" />
+<section id="research-paradigms-in-ai-data-science">
+<h2>2. Research Paradigms in AI &amp; Data Science<a class="headerlink" href="#research-paradigms-in-ai-data-science" title="Link to this heading">#</a></h2>
+<p>AI and Data Science research typically falls into one or more of the following paradigms:</p>
+<section id="empirical-research">
+<h3>2.1 Empirical Research<a class="headerlink" href="#empirical-research" title="Link to this heading">#</a></h3>
+<p>Empirical research focuses on <strong>observing and measuring</strong> behaviors of existing models, algorithms, or systems using real or simulated data.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>Benchmarking models across datasets</p></li>
+<li><p>Measuring performance degradation under distribution shift</p></li>
+<li><p>Auditing models for bias or fairness</p></li>
+</ul>
+</section>
+<section id="experimental-research">
+<h3>2.2 Experimental Research<a class="headerlink" href="#experimental-research" title="Link to this heading">#</a></h3>
+<p>Experimental research involves <strong>controlled manipulation</strong> of variables to test hypotheses.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>Comparing model architectures under fixed conditions</p></li>
+<li><p>Ablation studies</p></li>
+<li><p>Controlled comparisons of learning strategies</p></li>
+</ul>
+</section>
+<section id="algorithmic-research">
+<h3>2.3 Algorithmic Research<a class="headerlink" href="#algorithmic-research" title="Link to this heading">#</a></h3>
+<p>Algorithmic research proposes <strong>new methods, architectures, or optimization strategies</strong>, often supported by theoretical analysis and empirical validation.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>Novel training procedures</p></li>
+<li><p>New loss functions</p></li>
+<li><p>Hybrid symbolic–learning approaches</p></li>
+</ul>
+<p>In practice, strong AI/DS research often combines all three paradigms.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="the-ai-ds-research-cycle">
+<h2>3. The AI/DS Research Cycle<a class="headerlink" href="#the-ai-ds-research-cycle" title="Link to this heading">#</a></h2>
+<p>AI/DS research is inherently iterative. Rarely does a project proceed linearly from hypothesis to conclusion. Instead, researchers cycle through:</p>
+<ul class="simple">
+<li><p>Observation → Hypothesis → Experimentation → Analysis → Refinement</p></li>
+</ul>
+<p>Unexpected results, failed experiments, or weak baselines are not signs of failure but <strong>integral components of scientific discovery</strong>. Recognizing when to refine a hypothesis, redesign an experiment, or reconsider assumptions is a core research skill.</p>
+</section>
+<hr class="docutils" />
+<section id="reproducibility-rigor-and-falsifiability">
+<h2>4. Reproducibility, Rigor, and Falsifiability<a class="headerlink" href="#reproducibility-rigor-and-falsifiability" title="Link to this heading">#</a></h2>
+<section id="reproducibility">
+<h3>4.1 Reproducibility<a class="headerlink" href="#reproducibility" title="Link to this heading">#</a></h3>
+<p>A study is reproducible if <strong>independent researchers can obtain consistent results</strong> using the same data and methodology. In AI/DS, reproducibility depends on:</p>
+<ul class="simple">
+<li><p>Clear documentation</p></li>
+<li><p>Versioned code and data</p></li>
+<li><p>Controlled experimental environments</p></li>
+</ul>
+</section>
+<section id="rigor">
+<h3>4.2 Rigor<a class="headerlink" href="#rigor" title="Link to this heading">#</a></h3>
+<p>Rigor refers to methodological discipline:</p>
+<ul class="simple">
+<li><p>Proper baselines</p></li>
+<li><p>Appropriate evaluation metrics</p></li>
+<li><p>Justified design choices</p></li>
+<li><p>Transparent reporting of limitations</p></li>
+</ul>
+</section>
+<section id="falsifiability">
+<h3>4.3 Falsifiability<a class="headerlink" href="#falsifiability" title="Link to this heading">#</a></h3>
+<p>Scientific claims must be <strong>testable and refutable</strong>. Vague claims such as “the model performs well” are not scientific unless paired with measurable criteria and comparison points.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="common-failure-modes-in-ai-ds-research">
+<h2>5. Common Failure Modes in AI/DS Research<a class="headerlink" href="#common-failure-modes-in-ai-ds-research" title="Link to this heading">#</a></h2>
+<p>Several recurring issues undermine scientific credibility in AI/DS research:</p>
+<ul class="simple">
+<li><p>Overfitting to benchmarks</p></li>
+<li><p>Data leakage</p></li>
+<li><p>Cherry-picked results</p></li>
+<li><p>Inadequate baselines</p></li>
+<li><p>Lack of statistical validation</p></li>
+<li><p>Unreported negative results</p></li>
+<li><p>Poor documentation and irreproducible code</p></li>
+</ul>
+<p>Understanding these failure modes early helps prevent superficial or misleading research outcomes.</p>
+</section>
+<hr class="docutils" />
+<section id="the-role-of-theory-data-and-computation">
+<h2>6. The Role of Theory, Data, and Computation<a class="headerlink" href="#the-role-of-theory-data-and-computation" title="Link to this heading">#</a></h2>
+<p>Scientific research in AI/DS rests on three pillars:</p>
+<ul class="simple">
+<li><p><strong>Theory</strong>: provides conceptual models, assumptions, and formal guarantees.</p></li>
+<li><p><strong>Data</strong>: grounds hypotheses in observable evidence.</p></li>
+<li><p><strong>Computation</strong>: enables experimentation at scale.</p></li>
+</ul>
+<p>Neglecting any of these dimensions weakens the scientific contribution. Strong research integrates all three coherently.</p>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>AI and Data Science research is a <strong>scientific process</strong>, not trial-and-error modeling.</p></li>
+<li><p>The scientific method structures inquiry, validation, and iteration.</p></li>
+<li><p>Reproducibility, rigor, and falsifiability are essential for credibility.</p></li>
+<li><p>Theory, data, and computation must work together.</p></li>
+<li><p>Early awareness of common failure modes strengthens research quality.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="reflection-questions">
+<h2>Reflection Questions<a class="headerlink" href="#reflection-questions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>How does the scientific method in AI/DS differ from its application in traditional experimental sciences?</p></li>
+<li><p>Which research paradigm (empirical, experimental, algorithmic) best aligns with your current interests, and why?</p></li>
+<li><p>What risks arise when AI research prioritizes performance metrics over scientific rigor?</p></li>
+<li><p>How can reproducibility be compromised in AI/DS experiments, even with open-source code?</p></li>
+<li><p>In your view, which pillar—data, theory, or computation—is most often neglected in AI research, and why?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-identifying-scientific-claims">
+<h3>Exercise 1 — Identifying Scientific Claims<a class="headerlink" href="#exercise-1-identifying-scientific-claims" title="Link to this heading">#</a></h3>
+<p>Select a recent AI research paper and identify:</p>
+<ul class="simple">
+<li><p>The research question</p></li>
+<li><p>The hypothesis (explicit or implicit)</p></li>
+<li><p>The experimental design</p></li>
+<li><p>The evaluation criteria</p></li>
+</ul>
+<p>Discuss whether the claims made are falsifiable.</p>
+</section>
+<hr class="docutils" />
+<section id="exercise-2-failure-mode-analysis">
+<h3>Exercise 2 — Failure Mode Analysis<a class="headerlink" href="#exercise-2-failure-mode-analysis" title="Link to this heading">#</a></h3>
+<p>Choose an example of an AI system failure reported in the literature or media.<br />
+Analyze which failure modes (data, evaluation, bias, reproducibility) contributed to the outcome.</p>
+</section>
+<hr class="docutils" />
+<section id="exercise-3-research-interest-mapping">
+<h3>Exercise 3 — Research Interest Mapping<a class="headerlink" href="#exercise-3-research-interest-mapping" title="Link to this heading">#</a></h3>
+<p>Write a one-page statement describing:</p>
+<ul class="simple">
+<li><p>A phenomenon or problem you would like to study</p></li>
+<li><p>Why it is scientifically interesting</p></li>
+<li><p>Which research paradigm(s) it would involve</p></li>
+</ul>
+<p>This document will serve as the starting point for your thesis topic.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="further-reading-recent-literature">
+<h2>Further Reading (Recent Literature)<a class="headerlink" href="#further-reading-recent-literature" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Bommasani, R., et al. (2023). On the opportunities and risks of foundation models. <em>Stanford Center for Research on Foundation Models</em>. <a class="reference external" href="https://doi.org/10.48550/arXiv.2108.07258">https://doi.org/10.48550/arXiv.2108.07258</a></p></li>
+<li><p>Raji, I. D., et al. (2023). Closing the AI accountability gap: Defining an end-to-end framework for internal algorithmic auditing. <em>Proceedings of the ACM Conference on Fairness, Accountability, and Transparency</em>, 33–44. <a class="reference external" href="https://doi.org/10.1145/3593013.3594013">https://doi.org/10.1145/3593013.3594013</a></p></li>
+<li><p>Ji, Z., et al. (2023). Survey of hallucination in natural language generation. <em>ACM Computing Surveys, 55</em>(12), 1–38. <a class="reference external" href="https://doi.org/10.1145/3571730">https://doi.org/10.1145/3571730</a></p></li>
+<li><p>Shneiderman, B. (2023). Human-centered AI: Ensuring reliable, safe, and trustworthy systems. <em>Communications of the ACM, 66</em>(3), 34–37. <a class="reference external" href="https://doi.org/10.1145/3564985">https://doi.org/10.1145/3564985</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="whats-next">
+<h2>What’s Next<a class="headerlink" href="#whats-next" title="Link to this heading">#</a></h2>
+<p>In <strong>Chapter 2</strong>, we will examine <strong>research paradigms, ethics, and responsible AI</strong>, focusing on how ethical, legal, and societal constraints shape scientific inquiry in AI and Data Science.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Scientific Method for Artificial Intelligence &amp; Data Science</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter2_ResearchParadigms.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 2 — Research Paradigms, Ethics, and Responsible AI</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-scientific-method-in-computational-sciences">1. The Scientific Method in Computational Sciences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-paradigms-in-ai-data-science">2. Research Paradigms in AI &amp; Data Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-research">2.1 Empirical Research</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-research">2.2 Experimental Research</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmic-research">2.3 Algorithmic Research</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ai-ds-research-cycle">3. The AI/DS Research Cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility-rigor-and-falsifiability">4. Reproducibility, Rigor, and Falsifiability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducibility">4.1 Reproducibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rigor">4.2 Rigor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#falsifiability">4.3 Falsifiability</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-failure-modes-in-ai-ds-research">5. Common Failure Modes in AI/DS Research</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-of-theory-data-and-computation">6. The Role of Theory, Data, and Computation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-identifying-scientific-claims">Exercise 1 — Identifying Scientific Claims</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-failure-mode-analysis">Exercise 2 — Failure Mode Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-research-interest-mapping">Exercise 3 — Research Interest Mapping</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading-recent-literature">Further Reading (Recent Literature)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Leandro Nunes de Castro, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

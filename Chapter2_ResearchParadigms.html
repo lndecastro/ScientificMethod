@@ -1,0 +1,840 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 2 — Research Paradigms, Ethics, and Responsible AI &#8212; Temp Book 4</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter2_ResearchParadigms';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 3 — From Problem Area to Research Question" href="Chapter3_ResearchQuestion.html" />
+    <link rel="prev" title="Chapter 1 — Scientific Research in AI &amp; Data Science" href="Chapter1_ScientificResearch.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/dendritic_logo.png" class="logo__image only-light" alt="Temp Book 4 - Home"/>
+    <script>document.write(`<img src="_static/dendritic_logo.png" class="logo__image only-dark" alt="Temp Book 4 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Scientific Method for Artificial Intelligence & Data Science
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter1_ScientificResearch.html">Chapter 1: Scientific Research in AI &amp; Data Science</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 2: Research Paradigms, Ethics, and Responsible AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter3_ResearchQuestion.html">Chapter 3: From Problem Area to Research Question</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter4_LiteratureReview.html">Chapter 4: Literature Review as Scientific Evidence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter5_ResearchMethodology.html">Chapter 5: Research Methodology in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter6_ExperimentalDesign.html">Chapter 6: Experimental Design and Evaluation in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter7_Reproducibility.html">Chapter 7: Reproducibility, Tooling, and Research Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter8_Experimentation.html">Chapter 8: Preliminary Experimentation and Iterative Refinement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter9_Writing.html">Chapter 9: Scientific Writing and Thesis Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter10_Defense.html">Chapter 10: Research Communication and Defense</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/lndecastro/tempBook4" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/lndecastro/tempBook4/edit/master/docs/Chapter2_ResearchParadigms.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Chapter2_ResearchParadigms.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 2 — Research Paradigms, Ethics, and Responsible AI</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-paradigms-in-ai-data-science">1. Research Paradigms in AI &amp; Data Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positivist-and-empirical-paradigms">1.1 Positivist and Empirical Paradigms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-and-constructive-research">1.2 Design and Constructive Research</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#socio-technical-paradigms">1.3 Socio-Technical Paradigms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethics-as-a-core-component-of-scientific-research">2. Ethics as a Core Component of Scientific Research</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-fairness-and-harm">3. Bias, Fairness, and Harm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sources-of-bias">3.1 Sources of Bias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fairness-as-a-research-challenge">3.2 Fairness as a Research Challenge</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#misinformation-hallucinations-and-trust">4. Misinformation, Hallucinations, and Trust</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-privacy-and-documentation">5. Data Quality, Privacy, and Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-as-a-scientific-instrument">5.1 Data as a Scientific Instrument</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-and-responsible-data-use">5.2 Privacy and Responsible Data Use</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-practices">5.3 Documentation Practices</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explainability-transparency-and-accountability">6. Explainability, Transparency, and Accountability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-governance-and-regulation">7. AI Governance and Regulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#humanai-collaboration-vs-replacement">8. Human–AI Collaboration vs. Replacement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-ethical-risk-identification">Exercise 1 — Ethical Risk Identification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-paradigm-mapping">Exercise 2 — Paradigm Mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-human-centered-framing">Exercise 3 — Human-Centered Framing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading-recent-literature">Further Reading (Recent Literature)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-2-research-paradigms-ethics-and-responsible-ai">
+<h1>Chapter 2 — Research Paradigms, Ethics, and Responsible AI<a class="headerlink" href="#chapter-2-research-paradigms-ethics-and-responsible-ai" title="Link to this heading">#</a></h1>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
+<p>This chapter situates AI and Data Science research within its <strong>ethical, societal, and regulatory context</strong>. While Chapter 1 established AI/DS as a scientific endeavor, this chapter emphasizes that <strong>scientific validity alone is insufficient</strong>: responsible research must also account for bias, fairness, transparency, privacy, governance, and human impact.</p>
+<p>Students will learn how <strong>research paradigms and ethical considerations shape methodological choices</strong>, influence experimental design, and constrain what constitutes acceptable scientific practice in AI and Data Science.</p>
+</section>
+<hr class="docutils" />
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul class="simple">
+<li><p>Describe major <strong>research paradigms</strong> used in AI and Data Science.</p></li>
+<li><p>Explain why ethics and responsibility are integral to scientific research, not add-ons.</p></li>
+<li><p>Identify sources of <strong>bias, misinformation, and harm</strong> in AI/DS systems.</p></li>
+<li><p>Discuss the role of <strong>data quality, privacy, and documentation</strong> in responsible research.</p></li>
+<li><p>Understand current <strong>AI governance and regulatory trends</strong>.</p></li>
+<li><p>Articulate the distinction between <strong>human–AI collaboration</strong> and automation-focused design.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="research-paradigms-in-ai-data-science">
+<h2>1. Research Paradigms in AI &amp; Data Science<a class="headerlink" href="#research-paradigms-in-ai-data-science" title="Link to this heading">#</a></h2>
+<p>A research paradigm defines how knowledge is generated, validated, and interpreted. In AI and Data Science, paradigms influence how experiments are designed and how results are evaluated.</p>
+<section id="positivist-and-empirical-paradigms">
+<h3>1.1 Positivist and Empirical Paradigms<a class="headerlink" href="#positivist-and-empirical-paradigms" title="Link to this heading">#</a></h3>
+<p>Most AI/DS research follows a positivist tradition:</p>
+<ul class="simple">
+<li><p>Knowledge is derived from observable, measurable phenomena.</p></li>
+<li><p>Claims are validated through experiments and quantitative evaluation.</p></li>
+<li><p>Emphasis is placed on reproducibility and objectivity.</p></li>
+</ul>
+<p>This paradigm underlies benchmarking, performance evaluation, and comparative studies.</p>
+</section>
+<section id="design-and-constructive-research">
+<h3>1.2 Design and Constructive Research<a class="headerlink" href="#design-and-constructive-research" title="Link to this heading">#</a></h3>
+<p>Some AI research focuses on <strong>building artifacts</strong>:</p>
+<ul class="simple">
+<li><p>New algorithms</p></li>
+<li><p>Architectures</p></li>
+<li><p>Frameworks or systems</p></li>
+</ul>
+<p>Here, knowledge is generated through construction and evaluation of artifacts, often blending empirical validation with theoretical justification.</p>
+</section>
+<section id="socio-technical-paradigms">
+<h3>1.3 Socio-Technical Paradigms<a class="headerlink" href="#socio-technical-paradigms" title="Link to this heading">#</a></h3>
+<p>Increasingly, AI systems are recognized as <strong>socio-technical systems</strong>, where outcomes depend on:</p>
+<ul class="simple">
+<li><p>Human behavior</p></li>
+<li><p>Organizational context</p></li>
+<li><p>Institutional norms</p></li>
+<li><p>Social power structures</p></li>
+</ul>
+<p>This paradigm is essential for research on fairness, accountability, transparency, and impact.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="ethics-as-a-core-component-of-scientific-research">
+<h2>2. Ethics as a Core Component of Scientific Research<a class="headerlink" href="#ethics-as-a-core-component-of-scientific-research" title="Link to this heading">#</a></h2>
+<p>Ethics in AI/DS is not limited to downstream deployment concerns. Ethical considerations influence:</p>
+<ul class="simple">
+<li><p>Research questions that are appropriate to ask</p></li>
+<li><p>Data that may be collected or used</p></li>
+<li><p>Experimental designs that are acceptable</p></li>
+<li><p>Claims that may be responsibly made</p></li>
+</ul>
+<p>Ignoring ethical dimensions can invalidate otherwise technically sound research.</p>
+</section>
+<hr class="docutils" />
+<section id="bias-fairness-and-harm">
+<h2>3. Bias, Fairness, and Harm<a class="headerlink" href="#bias-fairness-and-harm" title="Link to this heading">#</a></h2>
+<section id="sources-of-bias">
+<h3>3.1 Sources of Bias<a class="headerlink" href="#sources-of-bias" title="Link to this heading">#</a></h3>
+<p>Bias can enter AI systems through:</p>
+<ul class="simple">
+<li><p>Data collection and sampling</p></li>
+<li><p>Labeling practices</p></li>
+<li><p>Feature selection</p></li>
+<li><p>Model design and optimization objectives</p></li>
+<li><p>Evaluation metrics</p></li>
+</ul>
+<p>Bias is not merely a data problem; it is often <strong>systemic and structural</strong>.</p>
+</section>
+<section id="fairness-as-a-research-challenge">
+<h3>3.2 Fairness as a Research Challenge<a class="headerlink" href="#fairness-as-a-research-challenge" title="Link to this heading">#</a></h3>
+<p>Fairness involves normative choices:</p>
+<ul class="simple">
+<li><p>What constitutes “equal” treatment?</p></li>
+<li><p>Which trade-offs are acceptable?</p></li>
+<li><p>Who defines harm?</p></li>
+</ul>
+<p>Scientific rigor requires making these assumptions explicit and justifiable.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="misinformation-hallucinations-and-trust">
+<h2>4. Misinformation, Hallucinations, and Trust<a class="headerlink" href="#misinformation-hallucinations-and-trust" title="Link to this heading">#</a></h2>
+<p>Modern AI systems, especially generative models, can produce outputs that are:</p>
+<ul class="simple">
+<li><p>Fluent but incorrect</p></li>
+<li><p>Plausible but unsupported</p></li>
+<li><p>Misleading or fabricated</p></li>
+</ul>
+<p>From a scientific perspective, this raises concerns about:</p>
+<ul class="simple">
+<li><p>Validity of generated evidence</p></li>
+<li><p>Reliability of AI-assisted research</p></li>
+<li><p>Transparency of model limitations</p></li>
+</ul>
+<p>Responsible AI research must account for these risks and clearly communicate uncertainty.</p>
+</section>
+<hr class="docutils" />
+<section id="data-quality-privacy-and-documentation">
+<h2>5. Data Quality, Privacy, and Documentation<a class="headerlink" href="#data-quality-privacy-and-documentation" title="Link to this heading">#</a></h2>
+<section id="data-as-a-scientific-instrument">
+<h3>5.1 Data as a Scientific Instrument<a class="headerlink" href="#data-as-a-scientific-instrument" title="Link to this heading">#</a></h3>
+<p>In AI/DS, datasets function as experimental instruments. Poor data quality undermines:</p>
+<ul class="simple">
+<li><p>Internal validity</p></li>
+<li><p>External validity</p></li>
+<li><p>Ethical legitimacy</p></li>
+</ul>
+</section>
+<section id="privacy-and-responsible-data-use">
+<h3>5.2 Privacy and Responsible Data Use<a class="headerlink" href="#privacy-and-responsible-data-use" title="Link to this heading">#</a></h3>
+<p>Researchers must consider:</p>
+<ul class="simple">
+<li><p>Personally identifiable information</p></li>
+<li><p>Consent and data provenance</p></li>
+<li><p>Anonymization and aggregation</p></li>
+<li><p>Legal and institutional constraints</p></li>
+</ul>
+</section>
+<section id="documentation-practices">
+<h3>5.3 Documentation Practices<a class="headerlink" href="#documentation-practices" title="Link to this heading">#</a></h3>
+<p>Practices such as dataset documentation and model reporting improve transparency, accountability, and reproducibility.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="explainability-transparency-and-accountability">
+<h2>6. Explainability, Transparency, and Accountability<a class="headerlink" href="#explainability-transparency-and-accountability" title="Link to this heading">#</a></h2>
+<p>Explainability addresses the question: <strong>Can humans understand and interrogate AI behavior?</strong></p>
+<p>From a research standpoint, explainability:</p>
+<ul class="simple">
+<li><p>Supports error analysis</p></li>
+<li><p>Enables scientific insight</p></li>
+<li><p>Facilitates accountability</p></li>
+<li><p>Builds trust in results</p></li>
+</ul>
+<p>Explainability is not universal; appropriate methods depend on context, stakeholders, and risk.</p>
+</section>
+<hr class="docutils" />
+<section id="ai-governance-and-regulation">
+<h2>7. AI Governance and Regulation<a class="headerlink" href="#ai-governance-and-regulation" title="Link to this heading">#</a></h2>
+<p>AI research increasingly operates within evolving governance frameworks:</p>
+<ul class="simple">
+<li><p>National policies</p></li>
+<li><p>International guidelines</p></li>
+<li><p>Institutional review processes</p></li>
+</ul>
+<p>Researchers must remain aware of:</p>
+<ul class="simple">
+<li><p>Risk-based regulatory approaches</p></li>
+<li><p>Documentation and audit requirements</p></li>
+<li><p>Accountability expectations</p></li>
+</ul>
+<p>Scientific research does not exist outside governance; it shapes and is shaped by it.</p>
+</section>
+<hr class="docutils" />
+<section id="humanai-collaboration-vs-replacement">
+<h2>8. Human–AI Collaboration vs. Replacement<a class="headerlink" href="#humanai-collaboration-vs-replacement" title="Link to this heading">#</a></h2>
+<p>A key ethical distinction in AI research concerns system intent:</p>
+<ul class="simple">
+<li><p><strong>Replacement-oriented systems</strong> aim to automate human tasks.</p></li>
+<li><p><strong>Augmentation-oriented systems</strong> aim to support and enhance human decision-making.</p></li>
+</ul>
+<p>Human-centered AI emphasizes:</p>
+<ul class="simple">
+<li><p>Shared control</p></li>
+<li><p>Transparency</p></li>
+<li><p>Respect for human agency</p></li>
+<li><p>Complementarity rather than substitution</p></li>
+</ul>
+<p>This distinction has methodological implications for evaluation and system design.</p>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Research paradigms shape how AI/DS knowledge is produced and validated.</p></li>
+<li><p>Ethics is foundational to scientific legitimacy in AI research.</p></li>
+<li><p>Bias, misinformation, and opacity threaten both scientific rigor and societal trust.</p></li>
+<li><p>Data quality and privacy are central scientific concerns.</p></li>
+<li><p>Governance and regulation increasingly shape research practice.</p></li>
+<li><p>Human-centered approaches emphasize augmentation over replacement.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="reflection-questions">
+<h2>Reflection Questions<a class="headerlink" href="#reflection-questions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>How do research paradigms influence what is considered valid evidence in AI/DS?</p></li>
+<li><p>Why is it insufficient to address ethics only after an AI system is built?</p></li>
+<li><p>In what ways can bias undermine the scientific validity of AI research?</p></li>
+<li><p>How does explainability support scientific inquiry beyond trust and usability?</p></li>
+<li><p>What responsibilities do AI researchers have in shaping societal outcomes?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-ethical-risk-identification">
+<h3>Exercise 1 — Ethical Risk Identification<a class="headerlink" href="#exercise-1-ethical-risk-identification" title="Link to this heading">#</a></h3>
+<p>Select an AI research topic and identify:</p>
+<ul class="simple">
+<li><p>Potential ethical risks</p></li>
+<li><p>Stakeholders affected</p></li>
+<li><p>Mitigation strategies that could be incorporated into the research design</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="exercise-2-paradigm-mapping">
+<h3>Exercise 2 — Paradigm Mapping<a class="headerlink" href="#exercise-2-paradigm-mapping" title="Link to this heading">#</a></h3>
+<p>Choose a recent AI research paper and classify it according to:</p>
+<ul class="simple">
+<li><p>Research paradigm(s)</p></li>
+<li><p>Ethical assumptions</p></li>
+<li><p>Governance or compliance considerations (explicit or implicit)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="exercise-3-human-centered-framing">
+<h3>Exercise 3 — Human-Centered Framing<a class="headerlink" href="#exercise-3-human-centered-framing" title="Link to this heading">#</a></h3>
+<p>Reframe an automation-focused AI research idea into a <strong>human-centered, augmentation-oriented</strong> alternative.<br />
+Describe how this shift affects evaluation criteria and success metrics.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="further-reading-recent-literature">
+<h2>Further Reading (Recent Literature)<a class="headerlink" href="#further-reading-recent-literature" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Raji, I. D., et al. (2023). Closing the AI accountability gap: Defining an end-to-end framework for internal algorithmic auditing. <em>Proceedings of the ACM Conference on Fairness, Accountability, and Transparency</em>, 33–44. <a class="reference external" href="https://doi.org/10.1145/3593013.3594013">https://doi.org/10.1145/3593013.3594013</a></p></li>
+<li><p>Ji, Z., et al. (2023). Survey of hallucination in natural language generation. <em>ACM Computing Surveys, 55</em>(12), 1–38. <a class="reference external" href="https://doi.org/10.1145/3571730">https://doi.org/10.1145/3571730</a></p></li>
+<li><p>Shneiderman, B. (2023). Human-centered AI: Ensuring reliable, safe, and indicating trustworthy systems. <em>Communications of the ACM, 66</em>(3), 34–37. <a class="reference external" href="https://doi.org/10.1145/3564985">https://doi.org/10.1145/3564985</a></p></li>
+<li><p>European Union. (2024). <em>Regulation (EU) 2024/1689: Artificial Intelligence Act</em>. <em>Official Journal of the European Union</em>. <a class="reference external" href="https://eur-lex.europa.eu/eli/reg/2024/1689">https://eur-lex.europa.eu/eli/reg/2024/1689</a></p></li>
+<li><p>White House Office of Science and Technology Policy. (2023). <em>Blueprint for an AI Bill of Rights: From principles to practice</em>. <a class="reference external" href="https://www.whitehouse.gov/ostp/ai-bill-of-rights/">https://www.whitehouse.gov/ostp/ai-bill-of-rights/</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="whats-next">
+<h2>What’s Next<a class="headerlink" href="#whats-next" title="Link to this heading">#</a></h2>
+<p>In <strong>Chapter 3</strong>, we will move from context to action by focusing on <strong>how to transform broad areas of interest into precise, feasible, and researchable AI/DS questions</strong>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter1_ScientificResearch.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 1 — Scientific Research in AI &amp; Data Science</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter3_ResearchQuestion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 3 — From Problem Area to Research Question</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-paradigms-in-ai-data-science">1. Research Paradigms in AI &amp; Data Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positivist-and-empirical-paradigms">1.1 Positivist and Empirical Paradigms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-and-constructive-research">1.2 Design and Constructive Research</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#socio-technical-paradigms">1.3 Socio-Technical Paradigms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethics-as-a-core-component-of-scientific-research">2. Ethics as a Core Component of Scientific Research</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-fairness-and-harm">3. Bias, Fairness, and Harm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sources-of-bias">3.1 Sources of Bias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fairness-as-a-research-challenge">3.2 Fairness as a Research Challenge</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#misinformation-hallucinations-and-trust">4. Misinformation, Hallucinations, and Trust</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-privacy-and-documentation">5. Data Quality, Privacy, and Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-as-a-scientific-instrument">5.1 Data as a Scientific Instrument</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-and-responsible-data-use">5.2 Privacy and Responsible Data Use</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-practices">5.3 Documentation Practices</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explainability-transparency-and-accountability">6. Explainability, Transparency, and Accountability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-governance-and-regulation">7. AI Governance and Regulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#humanai-collaboration-vs-replacement">8. Human–AI Collaboration vs. Replacement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-ethical-risk-identification">Exercise 1 — Ethical Risk Identification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-paradigm-mapping">Exercise 2 — Paradigm Mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-human-centered-framing">Exercise 3 — Human-Centered Framing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading-recent-literature">Further Reading (Recent Literature)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Leandro Nunes de Castro, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

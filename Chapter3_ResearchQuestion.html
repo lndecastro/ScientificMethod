@@ -1,0 +1,785 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 3 — From Problem Area to Research Question &#8212; Temp Book 4</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter3_ResearchQuestion';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 4 — Literature Review as Scientific Evidence" href="Chapter4_LiteratureReview.html" />
+    <link rel="prev" title="Chapter 2 — Research Paradigms, Ethics, and Responsible AI" href="Chapter2_ResearchParadigms.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/dendritic_logo.png" class="logo__image only-light" alt="Temp Book 4 - Home"/>
+    <script>document.write(`<img src="_static/dendritic_logo.png" class="logo__image only-dark" alt="Temp Book 4 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Scientific Method for Artificial Intelligence & Data Science
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter1_ScientificResearch.html">Chapter 1: Scientific Research in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter2_ResearchParadigms.html">Chapter 2: Research Paradigms, Ethics, and Responsible AI</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 3: From Problem Area to Research Question</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter4_LiteratureReview.html">Chapter 4: Literature Review as Scientific Evidence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter5_ResearchMethodology.html">Chapter 5: Research Methodology in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter6_ExperimentalDesign.html">Chapter 6: Experimental Design and Evaluation in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter7_Reproducibility.html">Chapter 7: Reproducibility, Tooling, and Research Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter8_Experimentation.html">Chapter 8: Preliminary Experimentation and Iterative Refinement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter9_Writing.html">Chapter 9: Scientific Writing and Thesis Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter10_Defense.html">Chapter 10: Research Communication and Defense</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/lndecastro/tempBook4" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/lndecastro/tempBook4/edit/master/docs/Chapter3_ResearchQuestion.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Chapter3_ResearchQuestion.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 3 — From Problem Area to Research Question</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-interest-areas-to-research-problems">1. From Interest Areas to Research Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-a-good-research-problem">2. Characteristics of a Good Research Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-questions-vs-objectives-vs-hypotheses">3. Research Questions vs. Objectives vs. Hypotheses</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-questions">3.1 Research Questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-objectives">3.2 Research Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">3.3 Hypotheses</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#novelty-and-contribution-in-ai-ds-research">4. Novelty and Contribution in AI/DS Research</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feasibility-and-scope-for-ms-level-research">5. Feasibility and Scope for MS-Level Research</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aligning-questions-with-data-and-methods">6. Aligning Questions with Data and Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advisor-alignment-and-research-planning">7. Advisor Alignment and Research Planning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-problem-refinement">Exercise 1 — Problem Refinement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-hypothesis-formulation">Exercise 2 — Hypothesis Formulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-feasibility-assessment">Exercise 3 — Feasibility Assessment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading-recent-literature">Further Reading (Recent Literature)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-3-from-problem-area-to-research-question">
+<h1>Chapter 3 — From Problem Area to Research Question<a class="headerlink" href="#chapter-3-from-problem-area-to-research-question" title="Link to this heading">#</a></h1>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
+<p>This chapter focuses on one of the most critical and difficult steps in scientific research: <strong>transforming a broad area of interest into a precise, feasible, and researchable question</strong>. In AI and Data Science, many projects fail not because of poor implementation, but because the research problem is ill-defined, overly broad, or misaligned with scientific contribution.</p>
+<p>By the end of this chapter, students will understand how to move from general curiosity or application ideas to <strong>well-scoped research questions and hypotheses</strong> that can be addressed rigorously within the constraints of a Master’s-level thesis.</p>
+</section>
+<hr class="docutils" />
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul class="simple">
+<li><p>Distinguish between <strong>problem areas, research problems, research questions, and hypotheses</strong>.</p></li>
+<li><p>Identify meaningful and researchable problems in AI and Data Science.</p></li>
+<li><p>Assess <strong>novelty, feasibility, and relevance</strong> of potential research questions.</p></li>
+<li><p>Formulate clear research objectives and hypotheses aligned with the scientific method.</p></li>
+<li><p>Scope a research question appropriately for an <strong>MS-level thesis</strong>.</p></li>
+<li><p>Align research questions with available data, methods, and evaluation strategies.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="from-interest-areas-to-research-problems">
+<h2>1. From Interest Areas to Research Problems<a class="headerlink" href="#from-interest-areas-to-research-problems" title="Link to this heading">#</a></h2>
+<p>Students often begin with broad interests such as:</p>
+<ul class="simple">
+<li><p>“Explainable AI”</p></li>
+<li><p>“Bias in machine learning”</p></li>
+<li><p>“Large language models”</p></li>
+<li><p>“AI in healthcare”</p></li>
+</ul>
+<p>While these areas are important, they are <strong>not research problems</strong>. A research problem must identify:</p>
+<ul class="simple">
+<li><p>A gap, limitation, or unresolved issue</p></li>
+<li><p>A context in which the problem manifests</p></li>
+<li><p>Why existing approaches are insufficient</p></li>
+</ul>
+<p>A useful heuristic is:</p>
+<blockquote>
+<div><p><em>What do we still not understand, measure, explain, or validate in this area?</em></p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="characteristics-of-a-good-research-problem">
+<h2>2. Characteristics of a Good Research Problem<a class="headerlink" href="#characteristics-of-a-good-research-problem" title="Link to this heading">#</a></h2>
+<p>A strong AI/DS research problem is:</p>
+<ul class="simple">
+<li><p><strong>Clear</strong>: precisely stated and unambiguous</p></li>
+<li><p><strong>Focused</strong>: narrow enough to be studied rigorously</p></li>
+<li><p><strong>Grounded</strong>: supported by gaps in the literature</p></li>
+<li><p><strong>Feasible</strong>: solvable with available data, tools, and time</p></li>
+<li><p><strong>Relevant</strong>: scientifically and/or societally meaningful</p></li>
+</ul>
+<p>Problems that are too broad, purely engineering-focused, or lacking empirical grounding often lead to weak scientific contributions.</p>
+</section>
+<hr class="docutils" />
+<section id="research-questions-vs-objectives-vs-hypotheses">
+<h2>3. Research Questions vs. Objectives vs. Hypotheses<a class="headerlink" href="#research-questions-vs-objectives-vs-hypotheses" title="Link to this heading">#</a></h2>
+<section id="research-questions">
+<h3>3.1 Research Questions<a class="headerlink" href="#research-questions" title="Link to this heading">#</a></h3>
+<p>A research question articulates <strong>what you want to understand or explain</strong>.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>How does distribution shift affect the fairness of classification models?</p></li>
+<li><p>What trade-offs exist between explainability and performance in deep learning models?</p></li>
+</ul>
+<p>Research questions should be <strong>answerable through empirical or experimental methods</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="research-objectives">
+<h3>3.2 Research Objectives<a class="headerlink" href="#research-objectives" title="Link to this heading">#</a></h3>
+<p>Objectives describe <strong>what the study aims to accomplish</strong>.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>To evaluate model robustness under synthetic distribution shifts</p></li>
+<li><p>To compare explainability techniques across model architectures</p></li>
+</ul>
+<p>Objectives are often multiple and operational.</p>
+</section>
+<hr class="docutils" />
+<section id="hypotheses">
+<h3>3.3 Hypotheses<a class="headerlink" href="#hypotheses" title="Link to this heading">#</a></h3>
+<p>Hypotheses are <strong>testable statements</strong> predicting outcomes.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>Models trained with domain adaptation will exhibit reduced fairness degradation under distribution shift.</p></li>
+<li><p>Post-hoc explainability methods will show lower fidelity for deeper architectures.</p></li>
+</ul>
+<p>Not all AI/DS research requires formal hypotheses, but <strong>testability and falsifiability remain essential</strong>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="novelty-and-contribution-in-ai-ds-research">
+<h2>4. Novelty and Contribution in AI/DS Research<a class="headerlink" href="#novelty-and-contribution-in-ai-ds-research" title="Link to this heading">#</a></h2>
+<p>Novelty does not require inventing entirely new algorithms. Contributions may include:</p>
+<ul class="simple">
+<li><p>New empirical evidence</p></li>
+<li><p>Improved experimental design</p></li>
+<li><p>Better evaluation protocols</p></li>
+<li><p>Identification of failure modes</p></li>
+<li><p>Replication and validation under new conditions</p></li>
+<li><p>Application of known methods to underexplored domains</p></li>
+</ul>
+<p>A common pitfall is overestimating novelty based solely on performance improvements.</p>
+</section>
+<hr class="docutils" />
+<section id="feasibility-and-scope-for-ms-level-research">
+<h2>5. Feasibility and Scope for MS-Level Research<a class="headerlink" href="#feasibility-and-scope-for-ms-level-research" title="Link to this heading">#</a></h2>
+<p>A Master’s thesis has practical constraints:</p>
+<ul class="simple">
+<li><p>Limited time</p></li>
+<li><p>Limited computational resources</p></li>
+<li><p>Limited access to proprietary data</p></li>
+</ul>
+<p>A feasible research question should:</p>
+<ul class="simple">
+<li><p>Be answerable within one academic year</p></li>
+<li><p>Rely on accessible datasets</p></li>
+<li><p>Avoid excessive parameter or dataset explosion</p></li>
+<li><p>Allow incremental progress</p></li>
+</ul>
+<p>Overly ambitious questions often lead to incomplete or superficial research.</p>
+</section>
+<hr class="docutils" />
+<section id="aligning-questions-with-data-and-methods">
+<h2>6. Aligning Questions with Data and Methods<a class="headerlink" href="#aligning-questions-with-data-and-methods" title="Link to this heading">#</a></h2>
+<p>Research questions must be compatible with:</p>
+<ul class="simple">
+<li><p>Available datasets (size, quality, labels)</p></li>
+<li><p>Appropriate methodologies (experimental, empirical, algorithmic)</p></li>
+<li><p>Evaluation metrics</p></li>
+<li><p>Ethical and legal constraints</p></li>
+</ul>
+<p>A mismatch between question and data is a frequent cause of failed studies.</p>
+</section>
+<hr class="docutils" />
+<section id="advisor-alignment-and-research-planning">
+<h2>7. Advisor Alignment and Research Planning<a class="headerlink" href="#advisor-alignment-and-research-planning" title="Link to this heading">#</a></h2>
+<p>Successful research is collaborative. Early alignment with an advisor helps ensure:</p>
+<ul class="simple">
+<li><p>Methodological soundness</p></li>
+<li><p>Appropriate scope</p></li>
+<li><p>Feasible expectations</p></li>
+<li><p>Intellectual coherence</p></li>
+</ul>
+<p>A well-formulated research question facilitates productive advisor feedback and committee evaluation.</p>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Broad interests must be transformed into <strong>specific research problems</strong>.</p></li>
+<li><p>Strong research questions are clear, focused, feasible, and grounded in literature.</p></li>
+<li><p>Distinguishing questions, objectives, and hypotheses improves scientific clarity.</p></li>
+<li><p>Novelty in AI/DS often comes from <strong>methodology and insight</strong>, not only new models.</p></li>
+<li><p>Proper scoping is essential for MS-level research success.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="reflection-questions">
+<h2>Reflection Questions<a class="headerlink" href="#reflection-questions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>What distinguishes a research problem from an application idea in AI/DS?</p></li>
+<li><p>How can overly broad research questions undermine scientific rigor?</p></li>
+<li><p>In what ways can empirical validation constitute a meaningful contribution?</p></li>
+<li><p>How do feasibility constraints shape good research questions?</p></li>
+<li><p>How early should advisor alignment occur, and why?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-problem-refinement">
+<h3>Exercise 1 — Problem Refinement<a class="headerlink" href="#exercise-1-problem-refinement" title="Link to this heading">#</a></h3>
+<p>Select a broad AI/DS topic and iteratively refine it into:</p>
+<ul class="simple">
+<li><p>A research problem</p></li>
+<li><p>One primary research question</p></li>
+<li><p>Two supporting objectives</p></li>
+</ul>
+<p>Explain each refinement step.</p>
+</section>
+<hr class="docutils" />
+<section id="exercise-2-hypothesis-formulation">
+<h3>Exercise 2 — Hypothesis Formulation<a class="headerlink" href="#exercise-2-hypothesis-formulation" title="Link to this heading">#</a></h3>
+<p>For a chosen research question, propose:</p>
+<ul class="simple">
+<li><p>One testable hypothesis</p></li>
+<li><p>One alternative hypothesis</p></li>
+<li><p>An outline of how the hypothesis could be falsified</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="exercise-3-feasibility-assessment">
+<h3>Exercise 3 — Feasibility Assessment<a class="headerlink" href="#exercise-3-feasibility-assessment" title="Link to this heading">#</a></h3>
+<p>Evaluate your proposed research question against:</p>
+<ul class="simple">
+<li><p>Available datasets</p></li>
+<li><p>Required computational resources</p></li>
+<li><p>Time constraints</p></li>
+<li><p>Ethical considerations</p></li>
+</ul>
+<p>Summarize potential risks and mitigation strategies.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="further-reading-recent-literature">
+<h2>Further Reading (Recent Literature)<a class="headerlink" href="#further-reading-recent-literature" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Bommasani, R., et al. (2023). On the opportunities and risks of foundation models. <em>Stanford Center for Research on Foundation Models</em>. <a class="reference external" href="https://doi.org/10.48550/arXiv.2108.07258">https://doi.org/10.48550/arXiv.2108.07258</a></p></li>
+<li><p>Raji, I. D., et al. (2023). Closing the AI accountability gap: Defining an end-to-end framework for internal algorithmic auditing. <em>Proceedings of the ACM Conference on Fairness, Accountability, and Transparency</em>, 33–44. <a class="reference external" href="https://doi.org/10.1145/3593013.3594013">https://doi.org/10.1145/3593013.3594013</a></p></li>
+<li><p>Shneiderman, B. (2023). Human-centered AI: Ensuring reliable, safe, and trustworthy systems. <em>Communications of the ACM, 66</em>(3), 34–37. <a class="reference external" href="https://doi.org/10.1145/3564985">https://doi.org/10.1145/3564985</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="whats-next">
+<h2>What’s Next<a class="headerlink" href="#whats-next" title="Link to this heading">#</a></h2>
+<p>In <strong>Chapter 4</strong>, we will focus on <strong>the literature review as scientific evidence</strong>, emphasizing how to synthesize prior work to justify research gaps and methodological choices.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter2_ResearchParadigms.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 2 — Research Paradigms, Ethics, and Responsible AI</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter4_LiteratureReview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 4 — Literature Review as Scientific Evidence</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-interest-areas-to-research-problems">1. From Interest Areas to Research Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-a-good-research-problem">2. Characteristics of a Good Research Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-questions-vs-objectives-vs-hypotheses">3. Research Questions vs. Objectives vs. Hypotheses</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-questions">3.1 Research Questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-objectives">3.2 Research Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">3.3 Hypotheses</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#novelty-and-contribution-in-ai-ds-research">4. Novelty and Contribution in AI/DS Research</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feasibility-and-scope-for-ms-level-research">5. Feasibility and Scope for MS-Level Research</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aligning-questions-with-data-and-methods">6. Aligning Questions with Data and Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advisor-alignment-and-research-planning">7. Advisor Alignment and Research Planning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-problem-refinement">Exercise 1 — Problem Refinement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-hypothesis-formulation">Exercise 2 — Hypothesis Formulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-feasibility-assessment">Exercise 3 — Feasibility Assessment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading-recent-literature">Further Reading (Recent Literature)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Leandro Nunes de Castro, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,857 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 6 — Experimental Design and Evaluation in AI &amp; Data Science &#8212; Temp Book 4</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter6_ExperimentalDesign';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 7 — Reproducibility, Tooling, and Research Pipelines" href="Chapter7_Reproducibility.html" />
+    <link rel="prev" title="Chapter 5 — Research Methodology in AI &amp; Data Science" href="Chapter5_ResearchMethodology.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/dendritic_logo.png" class="logo__image only-light" alt="Temp Book 4 - Home"/>
+    <script>document.write(`<img src="_static/dendritic_logo.png" class="logo__image only-dark" alt="Temp Book 4 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Scientific Method for Artificial Intelligence & Data Science
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter1_ScientificResearch.html">Chapter 1: Scientific Research in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter2_ResearchParadigms.html">Chapter 2: Research Paradigms, Ethics, and Responsible AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter3_ResearchQuestion.html">Chapter 3: From Problem Area to Research Question</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter4_LiteratureReview.html">Chapter 4: Literature Review as Scientific Evidence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter5_ResearchMethodology.html">Chapter 5: Research Methodology in AI &amp; Data Science</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 6: Experimental Design and Evaluation in AI &amp; Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter7_Reproducibility.html">Chapter 7: Reproducibility, Tooling, and Research Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter8_Experimentation.html">Chapter 8: Preliminary Experimentation and Iterative Refinement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter9_Writing.html">Chapter 9: Scientific Writing and Thesis Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter10_Defense.html">Chapter 10: Research Communication and Defense</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/lndecastro/tempBook4" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/lndecastro/tempBook4/edit/master/docs/Chapter6_ExperimentalDesign.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Chapter6_ExperimentalDesign.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 6 — Experimental Design and Evaluation in AI & Data Science</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-of-experimental-design-in-scientific-research">1. The Role of Experimental Design in Scientific Research</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-selection-and-characterization">2. Dataset Selection and Characterization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-relevance">2.1 Dataset Relevance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-characterization">2.2 Dataset Characterization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-splitting-and-validation-strategies">3. Data Splitting and Validation Strategies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-validation-test-splits">3.1 Train / Validation / Test Splits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-and-resampling">3.2 Cross-Validation and Resampling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baselines-and-comparative-evaluation">4. Baselines and Comparative Evaluation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-good-baselines">4.1 Characteristics of Good Baselines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ablation-studies">4.2 Ablation Studies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-metrics">5. Evaluation Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metric-selection">5.1 Metric Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metric-limitations">5.2 Metric Limitations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-reasoning-and-uncertainty">6. Statistical Reasoning and Uncertainty</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variability-and-randomness">6.1 Variability and Randomness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-significance-and-effect-size">6.2 Statistical Significance and Effect Size</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-analysis-and-failure-cases">7. Error Analysis and Failure Cases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robustness-and-generalization">8. Robustness and Generalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-experimental-pitfalls">9. Common Experimental Pitfalls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-dataset-audit">Exercise 1 — Dataset Audit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-experimental-plan">Exercise 2 — Experimental Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-error-and-robustness-analysis">Exercise 3 — Error and Robustness Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading-recent-literature">Further Reading (Recent Literature)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-6-experimental-design-and-evaluation-in-ai-data-science">
+<h1>Chapter 6 — Experimental Design and Evaluation in AI &amp; Data Science<a class="headerlink" href="#chapter-6-experimental-design-and-evaluation-in-ai-data-science" title="Link to this heading">#</a></h1>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
+<p>This chapter addresses <strong>how scientific evidence is generated and validated</strong> in Artificial Intelligence (AI) and Data Science (DS). Even well-formulated research questions and sound methodologies can fail if experiments are poorly designed or inadequately evaluated.</p>
+<p>Students will learn how to design <strong>robust experiments</strong>, select appropriate datasets and baselines, define meaningful evaluation metrics, and apply statistical reasoning to interpret results. The chapter emphasizes experimental rigor as a cornerstone of scientific credibility in AI/DS research.</p>
+</section>
+<hr class="docutils" />
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>After completing this chapter, you will be able to:</p>
+<ul class="simple">
+<li><p>Design controlled and reproducible AI/DS experiments.</p></li>
+<li><p>Select and justify appropriate datasets and baselines.</p></li>
+<li><p>Choose evaluation metrics aligned with research objectives.</p></li>
+<li><p>Apply sound data splitting and validation strategies.</p></li>
+<li><p>Conduct error analysis and robustness assessment.</p></li>
+<li><p>Interpret experimental results using statistical reasoning.</p></li>
+<li><p>Identify common experimental pitfalls in AI/DS research.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="the-role-of-experimental-design-in-scientific-research">
+<h2>1. The Role of Experimental Design in Scientific Research<a class="headerlink" href="#the-role-of-experimental-design-in-scientific-research" title="Link to this heading">#</a></h2>
+<p>Experimental design determines <strong>how evidence is generated</strong>. In AI/DS, experiments serve as computational analogs to laboratory studies and must therefore:</p>
+<ul class="simple">
+<li><p>Control confounding variables</p></li>
+<li><p>Enable fair comparison between methods</p></li>
+<li><p>Support replicability</p></li>
+<li><p>Provide interpretable outcomes</p></li>
+</ul>
+<p>Poor experimental design undermines the validity of conclusions, regardless of model performance.</p>
+</section>
+<hr class="docutils" />
+<section id="dataset-selection-and-characterization">
+<h2>2. Dataset Selection and Characterization<a class="headerlink" href="#dataset-selection-and-characterization" title="Link to this heading">#</a></h2>
+<section id="dataset-relevance">
+<h3>2.1 Dataset Relevance<a class="headerlink" href="#dataset-relevance" title="Link to this heading">#</a></h3>
+<p>Datasets should be selected based on:</p>
+<ul class="simple">
+<li><p>Alignment with the research question</p></li>
+<li><p>Representativeness of the target domain</p></li>
+<li><p>Availability of labels and metadata</p></li>
+<li><p>Ethical and legal constraints</p></li>
+</ul>
+<p>Using inappropriate datasets can invalidate findings.</p>
+</section>
+<hr class="docutils" />
+<section id="dataset-characterization">
+<h3>2.2 Dataset Characterization<a class="headerlink" href="#dataset-characterization" title="Link to this heading">#</a></h3>
+<p>Before experimentation, datasets must be analyzed for:</p>
+<ul class="simple">
+<li><p>Size and dimensionality</p></li>
+<li><p>Class imbalance</p></li>
+<li><p>Noise and missing data</p></li>
+<li><p>Temporal or spatial dependencies</p></li>
+<li><p>Potential sources of bias</p></li>
+</ul>
+<p>Dataset characterization is part of experimental rigor, not a preliminary step to be skipped.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="data-splitting-and-validation-strategies">
+<h2>3. Data Splitting and Validation Strategies<a class="headerlink" href="#data-splitting-and-validation-strategies" title="Link to this heading">#</a></h2>
+<section id="train-validation-test-splits">
+<h3>3.1 Train / Validation / Test Splits<a class="headerlink" href="#train-validation-test-splits" title="Link to this heading">#</a></h3>
+<p>Standard practice involves separating data into:</p>
+<ul class="simple">
+<li><p>Training data for model fitting</p></li>
+<li><p>Validation data for model selection</p></li>
+<li><p>Test data for final evaluation</p></li>
+</ul>
+<p>Test data must remain untouched until final evaluation to prevent information leakage.</p>
+</section>
+<hr class="docutils" />
+<section id="cross-validation-and-resampling">
+<h3>3.2 Cross-Validation and Resampling<a class="headerlink" href="#cross-validation-and-resampling" title="Link to this heading">#</a></h3>
+<p>Cross-validation techniques improve reliability when data are limited, but require careful implementation to avoid leakage, especially with:</p>
+<ul class="simple">
+<li><p>Time-series data</p></li>
+<li><p>Grouped or hierarchical data</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="baselines-and-comparative-evaluation">
+<h2>4. Baselines and Comparative Evaluation<a class="headerlink" href="#baselines-and-comparative-evaluation" title="Link to this heading">#</a></h2>
+<p>Baselines provide context for interpreting results.</p>
+<section id="characteristics-of-good-baselines">
+<h3>4.1 Characteristics of Good Baselines<a class="headerlink" href="#characteristics-of-good-baselines" title="Link to this heading">#</a></h3>
+<p>Good baselines are:</p>
+<ul class="simple">
+<li><p>Representative of existing approaches</p></li>
+<li><p>Appropriately tuned</p></li>
+<li><p>Clearly documented</p></li>
+<li><p>Reproducible</p></li>
+</ul>
+<p>Weak or inappropriate baselines exaggerate perceived contributions.</p>
+</section>
+<hr class="docutils" />
+<section id="ablation-studies">
+<h3>4.2 Ablation Studies<a class="headerlink" href="#ablation-studies" title="Link to this heading">#</a></h3>
+<p>Ablation studies isolate the contribution of individual components by systematically removing or modifying them. They are particularly important for complex models.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="evaluation-metrics">
+<h2>5. Evaluation Metrics<a class="headerlink" href="#evaluation-metrics" title="Link to this heading">#</a></h2>
+<section id="metric-selection">
+<h3>5.1 Metric Selection<a class="headerlink" href="#metric-selection" title="Link to this heading">#</a></h3>
+<p>Metrics must align with:</p>
+<ul class="simple">
+<li><p>Task objectives</p></li>
+<li><p>Data characteristics</p></li>
+<li><p>Stakeholder priorities</p></li>
+</ul>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>Accuracy, precision, recall, F1-score</p></li>
+<li><p>ROC-AUC and PR-AUC</p></li>
+<li><p>Mean absolute error and RMSE</p></li>
+<li><p>Fairness and robustness metrics</p></li>
+</ul>
+<p>Metric choice influences conclusions and must be justified explicitly.</p>
+</section>
+<hr class="docutils" />
+<section id="metric-limitations">
+<h3>5.2 Metric Limitations<a class="headerlink" href="#metric-limitations" title="Link to this heading">#</a></h3>
+<p>No single metric captures all aspects of performance. Multiple metrics are often necessary to provide a complete picture.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="statistical-reasoning-and-uncertainty">
+<h2>6. Statistical Reasoning and Uncertainty<a class="headerlink" href="#statistical-reasoning-and-uncertainty" title="Link to this heading">#</a></h2>
+<section id="variability-and-randomness">
+<h3>6.1 Variability and Randomness<a class="headerlink" href="#variability-and-randomness" title="Link to this heading">#</a></h3>
+<p>AI experiments are affected by randomness in:</p>
+<ul class="simple">
+<li><p>Initialization</p></li>
+<li><p>Data sampling</p></li>
+<li><p>Optimization processes</p></li>
+</ul>
+<p>Single-run results are rarely sufficient.</p>
+</section>
+<hr class="docutils" />
+<section id="statistical-significance-and-effect-size">
+<h3>6.2 Statistical Significance and Effect Size<a class="headerlink" href="#statistical-significance-and-effect-size" title="Link to this heading">#</a></h3>
+<p>Statistical analysis helps distinguish meaningful differences from noise. Reporting uncertainty, confidence intervals, or variability across runs improves interpretability.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="error-analysis-and-failure-cases">
+<h2>7. Error Analysis and Failure Cases<a class="headerlink" href="#error-analysis-and-failure-cases" title="Link to this heading">#</a></h2>
+<p>Error analysis involves examining:</p>
+<ul class="simple">
+<li><p>Misclassified or poorly predicted cases</p></li>
+<li><p>Patterns of systematic failure</p></li>
+<li><p>Sensitivity to input variations</p></li>
+</ul>
+<p>Understanding errors often provides deeper scientific insight than aggregate metrics.</p>
+</section>
+<hr class="docutils" />
+<section id="robustness-and-generalization">
+<h2>8. Robustness and Generalization<a class="headerlink" href="#robustness-and-generalization" title="Link to this heading">#</a></h2>
+<p>Robustness evaluation assesses:</p>
+<ul class="simple">
+<li><p>Sensitivity to noise</p></li>
+<li><p>Performance under distribution shift</p></li>
+<li><p>Stability across datasets or domains</p></li>
+</ul>
+<p>Generalization is a scientific claim and must be supported by evidence.</p>
+</section>
+<hr class="docutils" />
+<section id="common-experimental-pitfalls">
+<h2>9. Common Experimental Pitfalls<a class="headerlink" href="#common-experimental-pitfalls" title="Link to this heading">#</a></h2>
+<p>Frequent issues include:</p>
+<ul class="simple">
+<li><p>Data leakage</p></li>
+<li><p>Improper reuse of test data</p></li>
+<li><p>Overfitting to benchmarks</p></li>
+<li><p>Insufficient repetitions</p></li>
+<li><p>Cherry-picked results</p></li>
+<li><p>Ignoring negative findings</p></li>
+</ul>
+<p>Avoiding these pitfalls is essential for scientific integrity.</p>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Experimental design is central to scientific validity in AI/DS.</p></li>
+<li><p>Dataset selection and characterization shape research outcomes.</p></li>
+<li><p>Proper baselines and metrics are essential for fair comparison.</p></li>
+<li><p>Statistical reasoning supports credible interpretation.</p></li>
+<li><p>Error analysis and robustness testing deepen scientific understanding.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="reflection-questions">
+<h2>Reflection Questions<a class="headerlink" href="#reflection-questions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Why is experimental design as important as model choice in AI/DS research?</p></li>
+<li><p>How can data leakage occur even with standard splitting practices?</p></li>
+<li><p>What risks arise from relying on a single evaluation metric?</p></li>
+<li><p>How does error analysis contribute to scientific insight?</p></li>
+<li><p>What evidence is required to support claims of generalization?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-dataset-audit">
+<h3>Exercise 1 — Dataset Audit<a class="headerlink" href="#exercise-1-dataset-audit" title="Link to this heading">#</a></h3>
+<p>Select a dataset relevant to your research and:</p>
+<ul class="simple">
+<li><p>Describe its key characteristics</p></li>
+<li><p>Identify potential sources of bias or leakage</p></li>
+<li><p>Discuss suitability for your research question</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="exercise-2-experimental-plan">
+<h3>Exercise 2 — Experimental Plan<a class="headerlink" href="#exercise-2-experimental-plan" title="Link to this heading">#</a></h3>
+<p>Design an experimental protocol for your research question, specifying:</p>
+<ul class="simple">
+<li><p>Dataset(s)</p></li>
+<li><p>Data splitting strategy</p></li>
+<li><p>Baselines</p></li>
+<li><p>Evaluation metrics</p></li>
+<li><p>Number of experimental runs</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="exercise-3-error-and-robustness-analysis">
+<h3>Exercise 3 — Error and Robustness Analysis<a class="headerlink" href="#exercise-3-error-and-robustness-analysis" title="Link to this heading">#</a></h3>
+<p>Propose methods for:</p>
+<ul class="simple">
+<li><p>Conducting error analysis</p></li>
+<li><p>Testing robustness under at least one perturbation or distribution shift</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="further-reading-recent-literature">
+<h2>Further Reading (Recent Literature)<a class="headerlink" href="#further-reading-recent-literature" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Ji, Z., et al. (2023). Survey of hallucination in natural language generation. <em>ACM Computing Surveys, 55</em>(12), 1–38. <a class="reference external" href="https://doi.org/10.1145/3571730">https://doi.org/10.1145/3571730</a></p></li>
+<li><p>Raji, I. D., et al. (2023). Closing the AI accountability gap: Defining an end-to-end framework for internal algorithmic auditing. <em>Proceedings of the ACM Conference on Fairness, Accountability, and Transparency</em>, 33–44. <a class="reference external" href="https://doi.org/10.1145/3593013.3594013">https://doi.org/10.1145/3593013.3594013</a></p></li>
+<li><p>Bommasani, R., et al. (2023). On the opportunities and risks of foundation models. <em>Stanford Center for Research on Foundation Models</em>. <a class="reference external" href="https://doi.org/10.48550/arXiv.2108.07258">https://doi.org/10.48550/arXiv.2108.07258</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="whats-next">
+<h2>What’s Next<a class="headerlink" href="#whats-next" title="Link to this heading">#</a></h2>
+<p>In <strong>Chapter 7</strong>, we will focus on <strong>reproducibility, tooling, and research pipelines</strong>, examining how experiment tracking, version control, and documentation support trustworthy and reusable AI/DS research.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter5_ResearchMethodology.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 5 — Research Methodology in AI &amp; Data Science</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter7_Reproducibility.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 7 — Reproducibility, Tooling, and Research Pipelines</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-of-experimental-design-in-scientific-research">1. The Role of Experimental Design in Scientific Research</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-selection-and-characterization">2. Dataset Selection and Characterization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-relevance">2.1 Dataset Relevance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-characterization">2.2 Dataset Characterization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-splitting-and-validation-strategies">3. Data Splitting and Validation Strategies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-validation-test-splits">3.1 Train / Validation / Test Splits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-and-resampling">3.2 Cross-Validation and Resampling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baselines-and-comparative-evaluation">4. Baselines and Comparative Evaluation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-good-baselines">4.1 Characteristics of Good Baselines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ablation-studies">4.2 Ablation Studies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-metrics">5. Evaluation Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metric-selection">5.1 Metric Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metric-limitations">5.2 Metric Limitations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-reasoning-and-uncertainty">6. Statistical Reasoning and Uncertainty</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variability-and-randomness">6.1 Variability and Randomness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-significance-and-effect-size">6.2 Statistical Significance and Effect Size</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-analysis-and-failure-cases">7. Error Analysis and Failure Cases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robustness-and-generalization">8. Robustness and Generalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-experimental-pitfalls">9. Common Experimental Pitfalls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">Reflection Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-dataset-audit">Exercise 1 — Dataset Audit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-experimental-plan">Exercise 2 — Experimental Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-error-and-robustness-analysis">Exercise 3 — Error and Robustness Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading-recent-literature">Further Reading (Recent Literature)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Leandro Nunes de Castro, Ph.D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
